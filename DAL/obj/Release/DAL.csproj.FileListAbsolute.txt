@@ -1,0 +1,162 @@
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\DAL.dll.config
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\DAL.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\DAL.pdb
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\EntityFramework.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Helpers.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Mvc.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Razor.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\EntityFramework.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Helpers.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Mvc.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.Razor.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Rafi Data\Airtech\Cafeela\API\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Rafi Data\Airtech\Cafeela\API\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Rafi Data\Airtech\Cafeela\API\DAL\obj\Release\DAL.dll
+D:\Rafi Data\Airtech\Cafeela\API\DAL\obj\Release\DAL.pdb
+D:\Rafi Data\Airtech\Cafeela\API\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\DAL.dll.config
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\DAL.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\DAL.pdb
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\EntityFramework.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Helpers.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Mvc.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Razor.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\EntityFramework.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Helpers.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Mvc.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.Razor.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\obj\Release\DAL.dll
+D:\Rafi Data\Airtech\Cafeela\CafeelaAPI\DAL\obj\Release\DAL.pdb
+D:\Project\Cafeela-API\DAL\bin\Release\DAL.dll.config
+D:\Project\Cafeela-API\DAL\bin\Release\DAL.dll
+D:\Project\Cafeela-API\DAL\bin\Release\DAL.pdb
+D:\Project\Cafeela-API\DAL\bin\Release\EntityFramework.dll
+D:\Project\Cafeela-API\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\Cafeela-API\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Project\Cafeela-API\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Helpers.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Mvc.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Razor.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.dll
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Project\Cafeela-API\DAL\bin\Release\EntityFramework.xml
+D:\Project\Cafeela-API\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\Cafeela-API\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Helpers.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Mvc.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.Razor.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Project\Cafeela-API\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Project\Cafeela-API\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Project\Cafeela-API\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Project\Cafeela-API\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Project\Cafeela-API\DAL\obj\Release\DAL.dll
+D:\Project\Cafeela-API\DAL\obj\Release\DAL.pdb
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\DAL.dll.config
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\DAL.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\DAL.pdb
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\EntityFramework.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Helpers.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Mvc.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Razor.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\EntityFramework.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Helpers.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Mvc.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.Razor.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Project\Studio7Teas\Studio7teas_API\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Project\Studio7Teas\Studio7teas_API\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Project\Studio7Teas\Studio7teas_API\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Project\Studio7Teas\Studio7teas_API\DAL\obj\Release\DAL.dll
+D:\Project\Studio7Teas\Studio7teas_API\DAL\obj\Release\DAL.pdb
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\DAL.dll.config
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\DAL.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\DAL.pdb
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\EntityFramework.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Helpers.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Mvc.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Razor.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\EntityFramework.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Helpers.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Mvc.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.Razor.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Project\Dhamtal\DhamtalAPI\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Project\Dhamtal\DhamtalAPI\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Project\Dhamtal\DhamtalAPI\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Project\Dhamtal\DhamtalAPI\DAL\obj\Release\DAL.dll
+D:\Project\Dhamtal\DhamtalAPI\DAL\obj\Release\DAL.pdb
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\DAL.dll.config
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\DAL.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\DAL.pdb
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\EntityFramework.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Helpers.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Mvc.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Razor.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\EntityFramework.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Helpers.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Mvc.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.Razor.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.dll
+D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.pdb

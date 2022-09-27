@@ -1,0 +1,1537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_a8354f_turkishpizzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ApplicationInfo">
+    <Key>
+      <PropertyRef Name="AppInfoID" />
+    </Key>
+    <Property Name="AppInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppDescription" Type="nvarchar(max)" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="500" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="500" />
+    <Property Name="ItemSettingTitle" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsItemSetting" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="BranchTiming" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeliveryNo" Type="nvarchar(max)" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="Discountdescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="WhatsappNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Banners">
+    <Key>
+      <PropertyRef Name="BannerID" />
+    </Key>
+    <Property Name="BannerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="CompanyURl" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="Currency" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessKey" Type="bigint" />
+    <Property Name="LastUpdateBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" />
+    <Property Name="ArabicName" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CustomerAddresses">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="PlaceID" Type="nvarchar" MaxLength="200" />
+    <Property Name="LocationAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CustomerDetail">
+    <Key>
+      <PropertyRef Name="CustomerDetailID" />
+    </Key>
+    <Property Name="CustomerDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerOrderDetail">
+    <Key>
+      <PropertyRef Name="CustomerOrderDetailID" />
+    </Key>
+    <Property Name="CustomerOrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerOrders">
+    <Key>
+      <PropertyRef Name="CustomerOrderID" />
+    </Key>
+    <Property Name="CustomerOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="LocationURL" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="AddressType" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressNickName" Type="nvarchar" MaxLength="500" />
+    <Property Name="TableNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CustomerPayment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="CardExpire" Type="nvarchar" MaxLength="50" />
+    <Property Name="CVV" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="DeliveryAreaID" />
+    </Key>
+    <Property Name="DeliveryAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="StatusID" Type="int" />
+  </EntityType>
+  <EntityType Name="DeliveryAreaBrandJunc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryAreaID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="ItemModifiersJunc">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ModifierID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ModifierID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="UnitID" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ArabicName" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="ItemType" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="IsFeatured" Type="bit" />
+    <Property Name="Calories" Type="float" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="LicenseID" Type="int" Nullable="false" />
+    <Property Name="DeliveryServices" Type="bit" />
+    <Property Name="DeliveryCharges" Type="float" />
+    <Property Name="DeliveryTime" Type="varchar" MaxLength="250" />
+    <Property Name="MinOrderAmount" Type="float" />
+    <Property Name="Longitude" Type="varchar" MaxLength="20" />
+    <Property Name="Latitude" Type="varchar" MaxLength="20" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="Opentime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Closetime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+    <Property Name="Discounts" Type="float" />
+    <Property Name="Tax" Type="float" />
+    <Property Name="IsDineInAllowed" Type="int" />
+  </EntityType>
+  <EntityType Name="Modifiers">
+    <Key>
+      <PropertyRef Name="ModifierID" />
+    </Key>
+    <Property Name="ModifierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" />
+    <Property Name="ArabicName" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Price" Type="float" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="OfferID" />
+    </Key>
+    <Property Name="OfferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderCheckout">
+    <Key>
+      <PropertyRef Name="OrderCheckoutID" />
+    </Key>
+    <Property Name="OrderCheckoutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="PaymentMode" Type="int" />
+    <Property Name="AmountPaid" Type="float" />
+    <Property Name="AmountTotal" Type="float" />
+    <Property Name="GrandTotal" Type="float" />
+    <Property Name="ServiceCharges" Type="float" />
+    <Property Name="Tax" Type="float" />
+    <Property Name="CheckoutDate" Type="datetime" />
+    <Property Name="SessionID" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdateBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="DiscountAmount" Type="float" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="OrderMode" Type="nvarchar" MaxLength="10" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdateBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdateDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetailModifier">
+    <Key>
+      <PropertyRef Name="OrderDetailModifierID" />
+    </Key>
+    <Property Name="OrderDetailModifierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDetailID" Type="int" />
+    <Property Name="ModifierID" Type="int" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="LastUpdateBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdateDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="TransactionNo" Type="int" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="OrderType" Type="varchar" MaxLength="20" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="SessionID" Type="varchar(max)" />
+    <Property Name="OrderTakerID" Type="int" />
+    <Property Name="DeliverUserID" Type="int" />
+    <Property Name="LastUpdateBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdateDT" Type="datetime" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="OrderPreparedDate" Type="datetime" />
+    <Property Name="OrderOFDDate" Type="datetime" />
+    <Property Name="OrderDoneDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PushToken">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="Device" Type="int" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="500" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="NumberPerson" Type="int" />
+    <Property Name="ReservationDate" Type="datetime" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="SittingArea" Type="nvarchar" MaxLength="20" />
+    <Property Name="StatusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StausID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="int" />
+  </EntityType>
+  <EntityType Name="SubUser">
+    <Key>
+      <PropertyRef Name="SubUserID" />
+    </Key>
+    <Property Name="SubUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="150" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="TodaySpecialItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+  </EntityType>
+  <EntityType Name="TransferOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="FromLocationID" Type="int" />
+    <Property Name="ToLocationID" Type="int" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="StatusID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Banners_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Banners" Type="Self.Banners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Banners">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerAddresses_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerAddresses">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerDetail_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="CustomerDetail" Type="Self.CustomerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerDetail">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOrders_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="CustomerOrders" Type="Self.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="CustomerOrders">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerPayment_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerPayment" Type="Self.CustomerPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerPayment">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryAreaBrandJunc_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="DeliveryAreaBrandJunc" Type="Self.DeliveryAreaBrandJunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="DeliveryAreaBrandJunc">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
+    <End Role="DeliveryAreaBrandJunc" Type="Self.DeliveryAreaBrandJunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="DeliveryAreaID" />
+      </Principal>
+      <Dependent Role="DeliveryAreaBrandJunc">
+        <PropertyRef Name="DeliveryAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemModifiers-Junc_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="ItemModifiersJunc" Type="Self.ItemModifiersJunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ItemModifiersJunc">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemModifiers-Junc_Modifiers">
+    <End Role="Modifiers" Type="Self.Modifiers" Multiplicity="1" />
+    <End Role="ItemModifiersJunc" Type="Self.ItemModifiersJunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modifiers">
+        <PropertyRef Name="ModifierID" />
+      </Principal>
+      <Dependent Role="ItemModifiersJunc">
+        <PropertyRef Name="ModifierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_Items">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitID" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Modifiers_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Modifiers" Type="Self.Modifiers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Modifiers">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderCheckout_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderCheckout" Type="Self.OrderCheckout" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderCheckout">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetailModifier_Modifiers">
+    <End Role="Modifiers" Type="Self.Modifiers" Multiplicity="0..1" />
+    <End Role="OrderDetailModifier" Type="Self.OrderDetailModifier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modifiers">
+        <PropertyRef Name="ModifierID" />
+      </Principal>
+      <Dependent Role="OrderDetailModifier">
+        <PropertyRef Name="ModifierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetailModifier_OrderDetail">
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="0..1" />
+    <End Role="OrderDetailModifier" Type="Self.OrderDetailModifier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetail">
+        <PropertyRef Name="OrderDetailID" />
+      </Principal>
+      <Dependent Role="OrderDetailModifier">
+        <PropertyRef Name="OrderDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_SubUser">
+    <End Role="SubUser" Type="Self.SubUser" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubUser">
+        <PropertyRef Name="SubUserID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderTakerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_SubUser1">
+    <End Role="SubUser" Type="Self.SubUser" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubUser">
+        <PropertyRef Name="SubUserID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="DeliverUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PushToken_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="PushToken" Type="Self.PushToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="PushToken">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubUser_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="SubUser" Type="Self.SubUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="SubUser">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubUser_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="SubUser" Type="Self.SubUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="SubUser">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TodaySpecialItems_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="TodaySpecialItems" Type="Self.TodaySpecialItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="TodaySpecialItems">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransferOrder_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="TransferOrder">
+        <PropertyRef Name="FromLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransferOrder_Locations1">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="TransferOrder">
+        <PropertyRef Name="ToLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransferOrder_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="TransferOrder">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetCustomerDeatil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_authenticateUser_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteBanner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteDelivery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteItemModifiers_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteModifier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Deleteoffers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteTodaySpecial_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Items" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetAdminOrders_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetAdminOrdersv2_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_getAllBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_getAppsetting_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetAppsettingbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getBanner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetBannerbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetBrandID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getBrands_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetBrandSettings_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCategorybyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCustomerbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCustomerOrderDetails_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCustomerOrders_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getDelivery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetDeliverybyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetItembyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetItemSettings_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetItemSettingsTitle_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppInfoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetLocationID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getLocations_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetMenu_api" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetMenu_apiv2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getModifiers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetModifiersbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getOffers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetOffersbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="brandid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetOrdersbyID_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertAppInfo_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="Facebook" Type="nvarchar" Mode="In" />
+    <Parameter Name="Twitter" Type="nvarchar" Mode="In" />
+    <Parameter Name="Instagram" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_insertAppsetting_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchTiming" Type="nvarchar" Mode="In" />
+    <Parameter Name="DeliveryNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Discount" Type="int" Mode="In" />
+    <Parameter Name="Discountdescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="WhatsappNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertBanner_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="BannerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertBrand_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyURl" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+    <Parameter Name="BusinessKey" Type="bigint" Mode="In" />
+    <Parameter Name="LastUpdateBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertBrandDelivery_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandIDs" Type="nvarchar" Mode="In" />
+    <Parameter Name="DeliveryAreaID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertCategory_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DisplayOrder" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertCustomer_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertDelivery_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Amount" Type="float" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="DeliveryAreaID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertItem_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="UnitID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Barcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="DisplayOrder" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="Cost" Type="float" Mode="In" />
+    <Parameter Name="ItemType" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+    <Parameter Name="Calories" Type="float" Mode="In" />
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertItemModifiers_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Modifiers" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertItemSettings_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Items" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_insertLocation_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="LicenseID" Type="int" Mode="In" />
+    <Parameter Name="DeliveryServices" Type="bit" Mode="In" />
+    <Parameter Name="DeliveryCharges" Type="float" Mode="In" />
+    <Parameter Name="DeliveryTime" Type="varchar" Mode="In" />
+    <Parameter Name="MinOrderAmount" Type="float" Mode="In" />
+    <Parameter Name="Longitude" Type="varchar" Mode="In" />
+    <Parameter Name="Latitude" Type="varchar" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="ImageURL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
+    <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Currency" Type="nvarchar" Mode="In" />
+    <Parameter Name="Passcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Discounts" Type="float" Mode="In" />
+    <Parameter Name="Tax" Type="float" Mode="In" />
+  </Function>
+  <Function Name="sp_insertModifier_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="ModifierID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertOffers_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="OfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesCategorywiseAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesCustomerReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="customerid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesCustomerwiseAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesDetailsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+    <Parameter Name="customerid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesItemwiseAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesSummaryAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_rptSalesUserwiseAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brandid" Type="int" Mode="In" />
+    <Parameter Name="locationid" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_SaleaToday_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BusinessDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_SalesDashboard_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_SalesDashboardRange_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="FromBusinessDate" Type="date" Mode="In" />
+    <Parameter Name="ToBusinessDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_SalesMAEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BusinessDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_updateAppInfo_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppInfoID" Type="int" Mode="In" />
+    <Parameter Name="AppDescription" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Facebook" Type="nvarchar" Mode="In" />
+    <Parameter Name="Twitter" Type="nvarchar" Mode="In" />
+    <Parameter Name="Instagram" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_updateAppsetting_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchTiming" Type="nvarchar" Mode="In" />
+    <Parameter Name="DeliveryNo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Discount" Type="int" Mode="In" />
+    <Parameter Name="Discountdescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="WhatsappNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_updateBanner_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="BannerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateBrand_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyURl" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+    <Parameter Name="BusinessKey" Type="bigint" Mode="In" />
+    <Parameter Name="LastUpdateBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateCategory_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DisplayOrder" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateCustomer_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateDelivery_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeliveryAreaID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Amount" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateItem_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="UnitID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Barcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="DisplayOrder" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="Cost" Type="float" Mode="In" />
+    <Parameter Name="ItemType" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+    <Parameter Name="Calories" Type="float" Mode="In" />
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateLocation_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="LicenseID" Type="int" Mode="In" />
+    <Parameter Name="DeliveryServices" Type="bit" Mode="In" />
+    <Parameter Name="DeliveryCharges" Type="float" Mode="In" />
+    <Parameter Name="DeliveryTime" Type="varchar" Mode="In" />
+    <Parameter Name="MinOrderAmount" Type="float" Mode="In" />
+    <Parameter Name="Longitude" Type="varchar" Mode="In" />
+    <Parameter Name="Latitude" Type="varchar" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="ImageURL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
+    <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Currency" Type="nvarchar" Mode="In" />
+    <Parameter Name="Passcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Discounts" Type="float" Mode="In" />
+    <Parameter Name="Tax" Type="float" Mode="In" />
+  </Function>
+  <Function Name="sp_updateModifier_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ArabicName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="ModifierID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateOffers_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ItemID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandID" Type="int" Mode="In" />
+    <Parameter Name="OfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateOrderstatus_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <Parameter Name="statusid" Type="int" Mode="In" />
+    <Parameter Name="orderid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateTodaySpecial_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemSettingTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsItemSetting" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spSaveCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CusromerName" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="varchar" Mode="In" />
+    <Parameter Name="image" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="LastUpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastudateDate" Type="datetime" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="BrandId" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_a8354f_turkishpizzaModelStoreContainer">
+    <EntitySet Name="ApplicationInfo" EntityType="Self.ApplicationInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppSetting" EntityType="Self.AppSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banners" EntityType="Self.Banners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerDetail" EntityType="Self.CustomerDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerOrderDetail" EntityType="Self.CustomerOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerPayment" EntityType="Self.CustomerPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryAreaBrandJunc" EntityType="Self.DeliveryAreaBrandJunc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemModifiersJunc" EntityType="Self.ItemModifiersJunc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modifiers" EntityType="Self.Modifiers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offers" EntityType="Self.Offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderCheckout" EntityType="Self.OrderCheckout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetailModifier" EntityType="Self.OrderDetailModifier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PushToken" EntityType="Self.PushToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubUser" EntityType="Self.SubUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TodaySpecialItems" EntityType="Self.TodaySpecialItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransferOrder" EntityType="Self.TransferOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Banners_Brand" Association="Self.FK_Banners_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Banners" EntitySet="Banners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Brand" Association="Self.FK_Category_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Locations" Association="Self.FK_Category_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Brand" Association="Self.FK_Customer_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Locations" Association="Self.FK_Customer_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerAddresses_Customer" Association="Self.FK_CustomerAddresses_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerDetail_Customer" Association="Self.FK_CustomerDetail_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerDetail" EntitySet="CustomerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOrders_Orders" Association="Self.FK_CustomerOrders_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerPayment_Customer" Association="Self.FK_CustomerPayment_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerPayment" EntitySet="CustomerPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryAreaBrandJunc_Brand" Association="Self.FK_DeliveryAreaBrandJunc_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJunc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" Association="Self.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJunc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemModifiers-Junc_Items" Association="Self.FK_ItemModifiers-Junc_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="ItemModifiersJunc" EntitySet="ItemModifiersJunc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemModifiers-Junc_Modifiers" Association="Self.FK_ItemModifiers-Junc_Modifiers">
+      <End Role="Modifiers" EntitySet="Modifiers" />
+      <End Role="ItemModifiersJunc" EntitySet="ItemModifiersJunc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_Items" Association="Self.FK_Items_Items">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_Unit" Association="Self.FK_Items_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Brand" Association="Self.FK_Locations_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Modifiers_Brand" Association="Self.FK_Modifiers_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Modifiers" EntitySet="Modifiers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Brand" Association="Self.FK_Offers_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Items" Association="Self.FK_Offers_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderCheckout_Orders" Association="Self.FK_OrderCheckout_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderCheckout" EntitySet="OrderCheckout" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Items" Association="Self.FK_OrderDetail_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Orders" Association="Self.FK_OrderDetail_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetailModifier_Modifiers" Association="Self.FK_OrderDetailModifier_Modifiers">
+      <End Role="Modifiers" EntitySet="Modifiers" />
+      <End Role="OrderDetailModifier" EntitySet="OrderDetailModifier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetailModifier_OrderDetail" Association="Self.FK_OrderDetailModifier_OrderDetail">
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+      <End Role="OrderDetailModifier" EntitySet="OrderDetailModifier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Locations" Association="Self.FK_Orders_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_SubUser" Association="Self.FK_Orders_SubUser">
+      <End Role="SubUser" EntitySet="SubUser" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_SubUser1" Association="Self.FK_Orders_SubUser1">
+      <End Role="SubUser" EntitySet="SubUser" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PushToken_Locations" Association="Self.FK_PushToken_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="PushToken" EntitySet="PushToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubUser_Brand" Association="Self.FK_SubUser_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="SubUser" EntitySet="SubUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubUser_Locations" Association="Self.FK_SubUser_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="SubUser" EntitySet="SubUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TodaySpecialItems_Items" Association="Self.FK_TodaySpecialItems_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="TodaySpecialItems" EntitySet="TodaySpecialItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransferOrder_Locations" Association="Self.FK_TransferOrder_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="TransferOrder" EntitySet="TransferOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransferOrder_Locations1" Association="Self.FK_TransferOrder_Locations1">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="TransferOrder" EntitySet="TransferOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransferOrder_Orders" Association="Self.FK_TransferOrder_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="TransferOrder" EntitySet="TransferOrder" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

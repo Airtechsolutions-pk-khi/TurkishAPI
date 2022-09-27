@@ -1,0 +1,1284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_a8354f_turkishpizzaModelStoreContainer" CdmEntityContainer="db_a8354f_turkishpizzaEntities">
+    <EntitySetMapping Name="ApplicationInfoes">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.ApplicationInfo">
+        <MappingFragment StoreEntitySet="ApplicationInfo">
+          <ScalarProperty Name="AppInfoID" ColumnName="AppInfoID" />
+          <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="ItemSettingTitle" ColumnName="ItemSettingTitle" />
+          <ScalarProperty Name="IsItemSetting" ColumnName="IsItemSetting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.AppSetting">
+        <MappingFragment StoreEntitySet="AppSetting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+          <ScalarProperty Name="BranchTiming" ColumnName="BranchTiming" />
+          <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Discountdescription" ColumnName="Discountdescription" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="WhatsappNo" ColumnName="WhatsappNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Banner">
+        <MappingFragment StoreEntitySet="Banners">
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerAddresses">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerAddress">
+        <MappingFragment StoreEntitySet="CustomerAddresses">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerDetails">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerDetail">
+        <MappingFragment StoreEntitySet="CustomerDetail">
+          <ScalarProperty Name="CustomerDetailID" ColumnName="CustomerDetailID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrderDetails">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrderDetail">
+        <MappingFragment StoreEntitySet="CustomerOrderDetail">
+          <ScalarProperty Name="CustomerOrderDetailID" ColumnName="CustomerOrderDetailID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrders">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrder">
+        <MappingFragment StoreEntitySet="CustomerOrders">
+          <ScalarProperty Name="CustomerOrderID" ColumnName="CustomerOrderID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LocationURL" ColumnName="LocationURL" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="AddressNickName" ColumnName="AddressNickName" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPayments">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerPayment">
+        <MappingFragment StoreEntitySet="CustomerPayment">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CardExpire" ColumnName="CardExpire" />
+          <ScalarProperty Name="CVV" ColumnName="CVV" />
+          <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryAreaBrandJuncs">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc">
+        <MappingFragment StoreEntitySet="DeliveryAreaBrandJunc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modifiers">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Modifier">
+        <MappingFragment StoreEntitySet="Modifiers">
+          <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Offer">
+        <MappingFragment StoreEntitySet="Offers">
+          <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderCheckouts">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderCheckout">
+        <MappingFragment StoreEntitySet="OrderCheckout">
+          <ScalarProperty Name="OrderCheckoutID" ColumnName="OrderCheckoutID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="OrderMode" ColumnName="OrderMode" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetailModifiers">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetailModifier">
+        <MappingFragment StoreEntitySet="OrderDetailModifier">
+          <ScalarProperty Name="OrderDetailModifierID" ColumnName="OrderDetailModifierID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+          <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+          <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+          <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PushTokens">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.PushToken">
+        <MappingFragment StoreEntitySet="PushToken">
+          <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StausID" ColumnName="StausID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubUsers">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.SubUser">
+        <MappingFragment StoreEntitySet="SubUser">
+          <ScalarProperty Name="SubUserID" ColumnName="SubUserID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TodaySpecialItems">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TodaySpecialItem">
+        <MappingFragment StoreEntitySet="TodaySpecialItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferOrders">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TransferOrder">
+        <MappingFragment StoreEntitySet="TransferOrder">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="FromLocationID" ColumnName="FromLocationID" />
+          <ScalarProperty Name="ToLocationID" ColumnName="ToLocationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ItemModifiersJunc" TypeName="db_a8354f_turkishpizzaModel.ItemModifiersJunc" StoreEntitySet="ItemModifiersJunc">
+      <EndProperty Name="Items">
+        <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+      </EndProperty>
+      <EndProperty Name="Modifiers">
+        <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerDeatil" FunctionName="db_a8354f_turkishpizzaModel.Store.GetCustomerDeatil">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.GetCustomerDeatil_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_authenticateUser_admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_authenticateUser_admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_authenticateUser_admin_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DeleteBanner" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteBanner" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteCategory" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteCategory" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteCustomer" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteCustomer" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteDelivery" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteDelivery" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteItem" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteItem" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteItemModifiers_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteItemModifiers_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteLocation" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteLocation" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteModifier" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteModifier" />
+    <FunctionImportMapping FunctionImportName="sp_Deleteoffers" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_Deleteoffers" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteTodaySpecial_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_DeleteTodaySpecial_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_GetAdminOrders_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetAdminOrders_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetAdminOrders_api_Result">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+          <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+          <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+          <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAdminOrdersv2_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetAdminOrdersv2_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetAdminOrdersv2_api_Result">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+          <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+          <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+          <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllBrand" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getAllBrand">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getAllBrand_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAppsetting_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getAppsetting_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getAppsetting_api_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+          <ScalarProperty Name="BranchTiming" ColumnName="BranchTiming" />
+          <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Discountdescription" ColumnName="Discountdescription" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="WhatsappNo" ColumnName="WhatsappNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAppsettingbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetAppsettingbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetAppsettingbyID_Admin_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+          <ScalarProperty Name="BranchTiming" ColumnName="BranchTiming" />
+          <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Discountdescription" ColumnName="Discountdescription" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="WhatsappNo" ColumnName="WhatsappNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getBanner" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getBanner">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getBanner_Result">
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetBannerbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetBannerbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetBannerbyID_Admin_Result">
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getBrand" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getBrand">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getBrand_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetBrandID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetBrandID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetBrandID_Admin_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getBrands_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getBrands_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getBrands_api_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetBrandSettings_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetBrandSettings_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_getCategory" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getCategory_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCategorybyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetCategorybyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetCategorybyID_Admin_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getCustomer" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getCustomer_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCustomerbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetCustomerbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetCustomerbyID_Admin_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCustomerOrderDetails_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetCustomerOrderDetails_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetCustomerOrderDetails_api_Result">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="OrderMode" ColumnName="OrderMode" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCustomerOrders_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetCustomerOrders_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetCustomerOrders_api_Result">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+          <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+          <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+          <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getDelivery" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getDelivery">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getDelivery_Result">
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetDeliverybyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetDeliverybyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetDeliverybyID_Admin_Result">
+          <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="Brands" ColumnName="Brands" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetItembyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetItembyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetItembyID_Admin_Result">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Modifiers" ColumnName="Modifiers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getItems" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getItems_Result">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetItemSettings_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetItemSettings_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_GetItemSettingsTitle_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetItemSettingsTitle_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetItemSettingsTitle_Admin_Result">
+          <ScalarProperty Name="ItemSettingTitle" ColumnName="ItemSettingTitle" />
+          <ScalarProperty Name="IsItemSetting" ColumnName="IsItemSetting" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getLocation" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getLocation_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetLocationID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetLocationID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetLocationID_Admin_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getLocations_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getLocations_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getLocations_api_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetMenu_api" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetMenu_api">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetMenu_api_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetMenu_apiv2" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetMenu_apiv2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetMenu_apiv2_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getModifiers" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getModifiers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getModifiers_Result">
+          <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetModifiersbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetModifiersbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetModifiersbyID_Admin_Result">
+          <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getOffers" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_getOffers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_getOffers_Result">
+          <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetOffersbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetOffersbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetOffersbyID_Admin_Result">
+          <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetOrdersbyID_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_GetOrdersbyID_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_GetOrdersbyID_Admin_Result">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+          <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+          <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+          <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+          <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+          <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insertAppInfo_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertAppInfo_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertAppsetting_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertAppsetting_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertBanner_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertBanner_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertBrand_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertBrand_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertBrandDelivery_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertBrandDelivery_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertCategory_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertCategory_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertCustomer_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertCustomer_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertDelivery_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertDelivery_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertItem_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertItem_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertItemModifiers_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertItemModifiers_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertItemSettings_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertItemSettings_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertLocation_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertLocation_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertModifier_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertModifier_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_insertOffers_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_insertOffers_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_rptSalesCategorywiseAdmin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesCategorywiseAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesCategorywiseAdmin_Result">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesCustomerReport" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesCustomerReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesCustomerReport_Result">
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
+          <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesCustomerwiseAdmin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesCustomerwiseAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesCustomerwiseAdmin_Result">
+          <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+          <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+          <ScalarProperty Name="TotalNetSales" ColumnName="TotalNetSales" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="TotalReturn" ColumnName="TotalReturn" />
+          <ScalarProperty Name="TotalSales1" ColumnName="TotalSales1" />
+          <ScalarProperty Name="TotalPickUpOrders" ColumnName="TotalPickUpOrders" />
+          <ScalarProperty Name="TotalCancelOrders" ColumnName="TotalCancelOrders" />
+          <ScalarProperty Name="TotalDeliveryOrders" ColumnName="TotalDeliveryOrders" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesDetailsReport" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesDetailsReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesDetailsReport_Result">
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
+          <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="TotalReturn" ColumnName="TotalReturn" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesItemwiseAdmin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesItemwiseAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesItemwiseAdmin_Result">
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Profit" ColumnName="Profit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesOrders" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesOrders_Result">
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
+          <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesSummaryAdmin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesSummaryAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesSummaryAdmin_Result">
+          <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+          <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+          <ScalarProperty Name="TotalNetSales" ColumnName="TotalNetSales" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="TotalReturn" ColumnName="TotalReturn" />
+          <ScalarProperty Name="TotalSalesOrders" ColumnName="TotalSalesOrders" />
+          <ScalarProperty Name="TotalPickUpOrders" ColumnName="TotalPickUpOrders" />
+          <ScalarProperty Name="TotalCancelOrders" ColumnName="TotalCancelOrders" />
+          <ScalarProperty Name="TotalDeliveryOrders" ColumnName="TotalDeliveryOrders" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rptSalesUserwiseAdmin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_rptSalesUserwiseAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_rptSalesUserwiseAdmin_Result">
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Profit" ColumnName="Profit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SaleaToday_admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_SaleaToday_admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_SaleaToday_admin_Result">
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SalesDashboard_admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_SalesDashboard_admin" />
+    <FunctionImportMapping FunctionImportName="sp_SalesDashboardRange_admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_SalesDashboardRange_admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_SalesDashboardRange_admin_Result">
+          <ScalarProperty Name="TotalOrders" ColumnName="TotalOrders" />
+          <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+          <ScalarProperty Name="NetSales" ColumnName="NetSales" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SalesMAEN" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_SalesMAEN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.sp_SalesMAEN_Result">
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_updateAppInfo_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateAppInfo_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateAppsetting_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateAppsetting_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateBanner_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateBanner_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateBrand_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateBrand_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateCategory_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateCategory_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateCustomer_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateCustomer_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateDelivery_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateDelivery_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateItem_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateItem_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateLocation_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateLocation_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateModifier_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateModifier_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateOffers_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateOffers_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_updateOrderstatus_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateOrderstatus_Admin" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateTodaySpecial_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_UpdateTodaySpecial_Admin" />
+    <FunctionImportMapping FunctionImportName="spSaveCustomer" FunctionName="db_a8354f_turkishpizzaModel.Store.spSaveCustomer" />
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SittingArea" ColumnName="SittingArea" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+          <ScalarProperty Name="NumberPerson" ColumnName="NumberPerson" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
