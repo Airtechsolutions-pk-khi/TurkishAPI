@@ -49,12 +49,12 @@ namespace DAL.DBEntities
         public virtual DbSet<OrderDetailModifier> OrderDetailModifiers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PushToken> PushTokens { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<SubUser> SubUsers { get; set; }
         public virtual DbSet<TodaySpecialItem> TodaySpecialItems { get; set; }
         public virtual DbSet<TransferOrder> TransferOrders { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
-        public virtual DbSet<Reservation> Reservations { get; set; }
     
         public virtual ObjectResult<GetCustomerDeatil_Result> GetCustomerDeatil()
         {

@@ -23,24 +23,12 @@ namespace TurkishAPI.Controllers
             repo = new orderRepository(new db_a8354f_turkishpizzaEntities());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="orderid"></param>
-        /// <param name="customerid"></param>
-        /// <returns></returns>
         [Route("orders/customer/{customerid}/{orderid}")]
-        public Rsp GetOrdersCustomer(int orderid,int customerid)
+        public Rsp GetOrdersCustomer(int orderid, int customerid)
         {
-            return repo.GetOrderCustomersV2(orderid,customerid);
+            return repo.GetOrderCustomersV2(orderid, customerid);
         }
-        
-        /// <summary>
-        /// List of AdminOrders
-        /// </summary>
-        /// <param name="locationID"></param>
-        /// <returns></returns>
-        /// 
+
         [Route("orders/admin/{locationID}")]
         public Rsp GetOrdersAdmin(string locationID)
         {
@@ -118,7 +106,7 @@ namespace TurkishAPI.Controllers
             Rsp rsp = new Rsp();
             try
             {
-                rsp = repo.TransferOrder(obj.OrderID,obj.FromLocationID,obj.ToLocationID);
+                rsp = repo.TransferOrder(obj.OrderID, obj.FromLocationID, obj.ToLocationID);
             }
             catch (Exception ex)
             {
@@ -143,12 +131,12 @@ namespace TurkishAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("orders/admin/update/{orderid}/{statusid}")]
-        public HttpResponseMessage GetOrderUpdateAdmin(int orderid,int statusid)
+        public HttpResponseMessage GetOrderUpdateAdmin(int orderid, int statusid)
         {
             Rsp rsp = new Rsp();
             try
             {
-                rsp = repo.UpdateOrderAdmin(orderid,statusid);
+                rsp = repo.UpdateOrderAdmin(orderid, statusid);
             }
             catch (Exception ex)
             {

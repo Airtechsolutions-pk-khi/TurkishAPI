@@ -18,11 +18,13 @@ namespace DAL.DBEntities
         public string FullName { get; set; }
         public string MobileNumber { get; set; }
         public Nullable<int> BrandID { get; set; }
+        public Nullable<int> LocationID { get; set; }
         public Nullable<int> NumberPerson { get; set; }
         public Nullable<System.DateTime> ReservationDate { get; set; }
         public string LastUpdatedBy { get; set; }
         public Nullable<System.DateTime> LastUpdatedDate { get; set; }
         public string SittingArea { get; set; }
         public Nullable<int> StatusID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
     }
 }

@@ -113,14 +113,18 @@ namespace DAL.Models
         public IEnumerable<CategoryBLL> categories { get; set; }
     }
 
+    public class RspReservationCustomer : Rsp
+    {
+        public List<ReservationBLL> Reservations { get; set; }
+    }
     public class RspOrdersCustomer : Rsp
     {
-        public IEnumerable<OrdersBLL> Orders { get; set; }
+        public List<OrdersBLL> Orders { get; set; }
     }
 
     public class RspOrdersAdmin : Rsp
     {
-        public IEnumerable<OrdersBLL> Orders { get; set; }
+        public List<OrdersBLL> Orders { get; set; }
     }
     public class RspCustomerLogin : Rsp
     {
@@ -361,6 +365,7 @@ namespace DAL.Models
     }
     public class ReservationBLL
     {
+        public int? CustomerID { get; set; }
         public int ReservationID { get; set; }
         public string FullName { get; set; }
         public string MobileNumber { get; set; }
@@ -370,6 +375,7 @@ namespace DAL.Models
         public string SittingArea { get; set; }
         public string LastUpdatedBy { get; set; }
         public DateTime LastUpdatedDate { get; set; }
+        public int? LocationID{ get; set; }
     }
     public class OrdersBLL
     {

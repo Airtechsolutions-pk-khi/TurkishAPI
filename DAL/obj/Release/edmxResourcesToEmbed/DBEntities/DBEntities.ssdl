@@ -366,12 +366,14 @@
     <Property Name="FullName" Type="nvarchar" MaxLength="500" />
     <Property Name="MobileNumber" Type="nvarchar" MaxLength="500" />
     <Property Name="BrandID" Type="int" />
+    <Property Name="LocationID" Type="int" />
     <Property Name="NumberPerson" Type="int" />
     <Property Name="ReservationDate" Type="datetime" />
     <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="LastUpdatedDate" Type="datetime" />
     <Property Name="SittingArea" Type="nvarchar" MaxLength="20" />
     <Property Name="StatusID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
   </EntityType>
   <EntityType Name="Status">
     <Key>

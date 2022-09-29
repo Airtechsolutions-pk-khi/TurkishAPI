@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Project\Turkish-Pizza\TurkishAPI\DAL\DBEntities\DBEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\DBEntities\DBEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

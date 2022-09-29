@@ -371,12 +371,14 @@
           <Property Name="FullName" Type="nvarchar" MaxLength="500" />
           <Property Name="MobileNumber" Type="nvarchar" MaxLength="500" />
           <Property Name="BrandID" Type="int" />
+          <Property Name="LocationID" Type="int" />
           <Property Name="NumberPerson" Type="int" />
           <Property Name="ReservationDate" Type="datetime" />
           <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="LastUpdatedDate" Type="datetime" />
           <Property Name="SittingArea" Type="nvarchar" MaxLength="20" />
           <Property Name="StatusID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1543,1028 +1545,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_a8354f_turkishpizzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ApplicationInfo">
-          <Key>
-            <PropertyRef Name="AppInfoID" />
-          </Key>
-          <Property Name="AppInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Twitter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Instagram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ItemSettingTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="IsItemSetting" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="AppSetting">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BranchAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="BranchTiming" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DeliveryNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Discount" Type="Int32" />
-          <Property Name="Discountdescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="WhatsappNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Banner">
-          <Key>
-            <PropertyRef Name="BannerID" />
-          </Key>
-          <Property Name="BannerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Banners_Brand" FromRole="Banners" ToRole="Brand" />
-        </EntityType>
-        <EntityType Name="Brand">
-          <Key>
-            <PropertyRef Name="BrandID" />
-          </Key>
-          <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyURl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BusinessKey" Type="Int64" />
-          <Property Name="LastUpdateBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Banners" Relationship="Self.FK_Banners_Brand" FromRole="Brand" ToRole="Banners" />
-          <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Brand" FromRole="Brand" ToRole="Category" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Brand" FromRole="Brand" ToRole="Customer" />
-          <NavigationProperty Name="DeliveryAreaBrandJuncs" Relationship="Self.FK_DeliveryAreaBrandJunc_Brand" FromRole="Brand" ToRole="DeliveryAreaBrandJunc" />
-          <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Brand" FromRole="Brand" ToRole="Locations" />
-          <NavigationProperty Name="Modifiers" Relationship="Self.FK_Modifiers_Brand" FromRole="Brand" ToRole="Modifiers" />
-          <NavigationProperty Name="Offers" Relationship="Self.FK_Offers_Brand" FromRole="Brand" ToRole="Offers" />
-          <NavigationProperty Name="SubUsers" Relationship="Self.FK_SubUser_Brand" FromRole="Brand" ToRole="SubUser" />
-        </EntityType>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ArabicName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LocationID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Category_Brand" FromRole="Category" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_Category_Locations" FromRole="Category" ToRole="Locations" />
-          <NavigationProperty Name="Items" Relationship="Self.FK_Items_Items" FromRole="Category" ToRole="Items" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CustomerID" />
-          </Key>
-          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LocationID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Customer_Brand" FromRole="Customer" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_Customer_Locations" FromRole="Customer" ToRole="Locations" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="Self.FK_CustomerAddresses_Customer" FromRole="Customer" ToRole="CustomerAddresses" />
-          <NavigationProperty Name="CustomerDetails" Relationship="Self.FK_CustomerDetail_Customer" FromRole="Customer" ToRole="CustomerDetail" />
-          <NavigationProperty Name="CustomerPayments" Relationship="Self.FK_CustomerPayment_Customer" FromRole="Customer" ToRole="CustomerPayment" />
-        </EntityType>
-        <EntityType Name="CustomerAddress">
-          <Key>
-            <PropertyRef Name="AddressID" />
-          </Key>
-          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ShortName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="PlaceID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="LocationAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerAddresses_Customer" FromRole="CustomerAddresses" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="CustomerDetail">
-          <Key>
-            <PropertyRef Name="CustomerDetailID" />
-          </Key>
-          <Property Name="CustomerDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerDetail_Customer" FromRole="CustomerDetail" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="CustomerOrderDetail">
-          <Key>
-            <PropertyRef Name="CustomerOrderDetailID" />
-          </Key>
-          <Property Name="CustomerOrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="CustomerOrder">
-          <Key>
-            <PropertyRef Name="CustomerOrderID" />
-          </Key>
-          <Property Name="CustomerOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LocationURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="OrderID" Type="Int32" />
-          <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AddressNickName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TableNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_CustomerOrders_Orders" FromRole="CustomerOrders" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="CustomerPayment">
-          <Key>
-            <PropertyRef Name="PaymentID" />
-          </Key>
-          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CardExpire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CVV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CardTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerPayment_Customer" FromRole="CustomerPayment" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="Delivery">
-          <Key>
-            <PropertyRef Name="DeliveryAreaID" />
-          </Key>
-          <Property Name="DeliveryAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Amount" Type="Double" />
-          <Property Name="StatusID" Type="Int32" />
-          <NavigationProperty Name="DeliveryAreaBrandJuncs" Relationship="Self.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" FromRole="Delivery" ToRole="DeliveryAreaBrandJunc" />
-        </EntityType>
-        <EntityType Name="DeliveryAreaBrandJunc">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DeliveryAreaID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_DeliveryAreaBrandJunc_Brand" FromRole="DeliveryAreaBrandJunc" ToRole="Brand" />
-          <NavigationProperty Name="Delivery" Relationship="Self.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" FromRole="DeliveryAreaBrandJunc" ToRole="Delivery" />
-        </EntityType>
-        <EntityType Name="Item">
-          <Key>
-            <PropertyRef Name="ItemID" />
-          </Key>
-          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryID" Type="Int32" />
-          <Property Name="UnitID" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayOrder" Type="Int32" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Cost" Type="Double" />
-          <Property Name="ItemType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="IsFeatured" Type="Boolean" />
-          <Property Name="Calories" Type="Double" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Items_Items" FromRole="Items" ToRole="Category" />
-          <NavigationProperty Name="Unit" Relationship="Self.FK_Items_Unit" FromRole="Items" ToRole="Unit" />
-          <NavigationProperty Name="Offers" Relationship="Self.FK_Offers_Items" FromRole="Items" ToRole="Offers" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Items" FromRole="Items" ToRole="OrderDetail" />
-          <NavigationProperty Name="TodaySpecialItems" Relationship="Self.FK_TodaySpecialItems_Items" FromRole="Items" ToRole="TodaySpecialItems" />
-          <NavigationProperty Name="Modifiers" Relationship="Self.ItemModifiersJunc" FromRole="Items" ToRole="Modifiers" />
-        </EntityType>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="LocationID" />
-          </Key>
-          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LicenseID" Type="Int32" Nullable="false" />
-          <Property Name="DeliveryServices" Type="Boolean" />
-          <Property Name="DeliveryCharges" Type="Double" />
-          <Property Name="DeliveryTime" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="MinOrderAmount" Type="Double" />
-          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="Opentime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Closetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Passcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Discounts" Type="Double" />
-          <Property Name="Tax" Type="Double" />
-          <Property Name="IsDineInAllowed" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Locations_Brand" FromRole="Locations" ToRole="Brand" />
-          <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Locations" FromRole="Locations" ToRole="Category" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Locations" FromRole="Locations" ToRole="Customer" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Locations" FromRole="Locations" ToRole="Orders" />
-          <NavigationProperty Name="PushTokens" Relationship="Self.FK_PushToken_Locations" FromRole="Locations" ToRole="PushToken" />
-          <NavigationProperty Name="SubUsers" Relationship="Self.FK_SubUser_Locations" FromRole="Locations" ToRole="SubUser" />
-          <NavigationProperty Name="TransferOrders" Relationship="Self.FK_TransferOrder_Locations" FromRole="Locations" ToRole="TransferOrder" />
-          <NavigationProperty Name="TransferOrders1" Relationship="Self.FK_TransferOrder_Locations1" FromRole="Locations" ToRole="TransferOrder" />
-        </EntityType>
-        <EntityType Name="Modifier">
-          <Key>
-            <PropertyRef Name="ModifierID" />
-          </Key>
-          <Property Name="ModifierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ArabicName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Modifiers_Brand" FromRole="Modifiers" ToRole="Brand" />
-          <NavigationProperty Name="OrderDetailModifiers" Relationship="Self.FK_OrderDetailModifier_Modifiers" FromRole="Modifiers" ToRole="OrderDetailModifier" />
-          <NavigationProperty Name="Items" Relationship="Self.ItemModifiersJunc" FromRole="Modifiers" ToRole="Items" />
-        </EntityType>
-        <EntityType Name="Offer">
-          <Key>
-            <PropertyRef Name="OfferID" />
-          </Key>
-          <Property Name="OfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FromDate" Type="DateTime" Precision="3" />
-          <Property Name="ToDate" Type="DateTime" Precision="3" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ItemID" Type="Int32" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Offers_Brand" FromRole="Offers" ToRole="Brand" />
-          <NavigationProperty Name="Item" Relationship="Self.FK_Offers_Items" FromRole="Offers" ToRole="Items" />
-        </EntityType>
-        <EntityType Name="OrderCheckout">
-          <Key>
-            <PropertyRef Name="OrderCheckoutID" />
-          </Key>
-          <Property Name="OrderCheckoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="Int32" />
-          <Property Name="PaymentMode" Type="Int32" />
-          <Property Name="AmountPaid" Type="Double" />
-          <Property Name="AmountTotal" Type="Double" />
-          <Property Name="GrandTotal" Type="Double" />
-          <Property Name="ServiceCharges" Type="Double" />
-          <Property Name="Tax" Type="Double" />
-          <Property Name="CheckoutDate" Type="DateTime" Precision="3" />
-          <Property Name="SessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdateBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="DiscountAmount" Type="Double" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderCheckout_Orders" FromRole="OrderCheckout" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="OrderDetail">
-          <Key>
-            <PropertyRef Name="OrderDetailID" />
-          </Key>
-          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="Int32" />
-          <Property Name="ItemID" Type="Int32" />
-          <Property Name="Quantity" Type="Double" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Cost" Type="Double" />
-          <Property Name="OrderMode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Item" Relationship="Self.FK_OrderDetail_Items" FromRole="OrderDetail" ToRole="Items" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetail_Orders" FromRole="OrderDetail" ToRole="Orders" />
-          <NavigationProperty Name="OrderDetailModifiers" Relationship="Self.FK_OrderDetailModifier_OrderDetail" FromRole="OrderDetail" ToRole="OrderDetailModifier" />
-        </EntityType>
-        <EntityType Name="OrderDetailModifier">
-          <Key>
-            <PropertyRef Name="OrderDetailModifierID" />
-          </Key>
-          <Property Name="OrderDetailModifierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderDetailID" Type="Int32" />
-          <Property Name="ModifierID" Type="Int32" />
-          <Property Name="Quantity" Type="Double" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Cost" Type="Double" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Modifier" Relationship="Self.FK_OrderDetailModifier_Modifiers" FromRole="OrderDetailModifier" ToRole="Modifiers" />
-          <NavigationProperty Name="OrderDetail" Relationship="Self.FK_OrderDetailModifier_OrderDetail" FromRole="OrderDetailModifier" ToRole="OrderDetail" />
-        </EntityType>
-        <EntityType Name="Order">
-          <Key>
-            <PropertyRef Name="OrderID" />
-          </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="TransactionNo" Type="Int32" />
-          <Property Name="OrderNo" Type="Int32" />
-          <Property Name="OrderType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="OrderDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="SessionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="OrderTakerID" Type="Int32" />
-          <Property Name="DeliverUserID" Type="Int32" />
-          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
-          <Property Name="LocationID" Type="Int32" />
-          <Property Name="OrderPreparedDate" Type="DateTime" Precision="3" />
-          <Property Name="OrderOFDDate" Type="DateTime" Precision="3" />
-          <Property Name="OrderDoneDate" Type="DateTime" Precision="3" />
-          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CustomerOrders" Relationship="Self.FK_CustomerOrders_Orders" FromRole="Orders" ToRole="CustomerOrders" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_Orders_Locations" FromRole="Orders" ToRole="Locations" />
-          <NavigationProperty Name="OrderCheckouts" Relationship="Self.FK_OrderCheckout_Orders" FromRole="Orders" ToRole="OrderCheckout" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Orders" FromRole="Orders" ToRole="OrderDetail" />
-          <NavigationProperty Name="SubUser" Relationship="Self.FK_Orders_SubUser" FromRole="Orders" ToRole="SubUser" />
-          <NavigationProperty Name="SubUser1" Relationship="Self.FK_Orders_SubUser1" FromRole="Orders" ToRole="SubUser" />
-          <NavigationProperty Name="TransferOrders" Relationship="Self.FK_TransferOrder_Orders" FromRole="Orders" ToRole="TransferOrder" />
-        </EntityType>
-        <EntityType Name="PushToken">
-          <Key>
-            <PropertyRef Name="TokenID" />
-          </Key>
-          <Property Name="TokenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LocationID" Type="Int32" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="Device" Type="Int32" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_PushToken_Locations" FromRole="PushToken" ToRole="Locations" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StausID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Int32" />
-        </EntityType>
-        <EntityType Name="SubUser">
-          <Key>
-            <PropertyRef Name="SubUserID" />
-          </Key>
-          <Property Name="SubUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Designation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ContactNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" Nullable="false" />
-          <Property Name="LocationID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_SubUser_Brand" FromRole="SubUser" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_SubUser_Locations" FromRole="SubUser" ToRole="Locations" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_SubUser" FromRole="SubUser" ToRole="Orders" />
-          <NavigationProperty Name="Orders1" Relationship="Self.FK_Orders_SubUser1" FromRole="SubUser" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="TodaySpecialItem">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemID" Type="Int32" />
-          <Property Name="BrandID" Type="Int32" />
-          <NavigationProperty Name="Item" Relationship="Self.FK_TodaySpecialItems_Items" FromRole="TodaySpecialItems" ToRole="Items" />
-        </EntityType>
-        <EntityType Name="TransferOrder">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="Int32" />
-          <Property Name="FromLocationID" Type="Int32" />
-          <Property Name="ToLocationID" Type="Int32" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_TransferOrder_Locations" FromRole="TransferOrder" ToRole="Locations" />
-          <NavigationProperty Name="Location1" Relationship="Self.FK_TransferOrder_Locations1" FromRole="TransferOrder" ToRole="Locations" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_TransferOrder_Orders" FromRole="TransferOrder" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="Unit">
-          <Key>
-            <PropertyRef Name="UnitID" />
-          </Key>
-          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <NavigationProperty Name="Items" Relationship="Self.FK_Items_Unit" FromRole="Unit" ToRole="Items" />
-        </EntityType>
-        <Association Name="FK_Banners_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Banners" Type="Self.Banner" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Banners">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Category_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Category" Type="Self.Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DeliveryAreaBrandJunc_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="DeliveryAreaBrandJunc" Type="Self.DeliveryAreaBrandJunc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="DeliveryAreaBrandJunc">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Locations" Type="Self.Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Locations">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Modifiers_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Modifiers" Type="Self.Modifier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Modifiers">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offers_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Offers" Type="Self.Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Offers">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubUser_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="SubUser" Type="Self.SubUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="SubUser">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Category_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="Category" Type="Self.Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Items_Items">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Items" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="Items">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerAddresses_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="CustomerAddresses">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerDetail_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerDetail" Type="Self.CustomerDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="CustomerDetail">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerPayment_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="CustomerPayment" Type="Self.CustomerPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="CustomerPayment">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerOrders_Orders">
-          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="CustomerOrders" Type="Self.CustomerOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="CustomerOrders">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
-          <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
-          <End Role="DeliveryAreaBrandJunc" Type="Self.DeliveryAreaBrandJunc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Delivery">
-              <PropertyRef Name="DeliveryAreaID" />
-            </Principal>
-            <Dependent Role="DeliveryAreaBrandJunc">
-              <PropertyRef Name="DeliveryAreaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Items_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
-          <End Role="Items" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unit">
-              <PropertyRef Name="UnitID" />
-            </Principal>
-            <Dependent Role="Items">
-              <PropertyRef Name="UnitID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offers_Items">
-          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
-          <End Role="Offers" Type="Self.Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="ItemID" />
-            </Principal>
-            <Dependent Role="Offers">
-              <PropertyRef Name="ItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetail_Items">
-          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="ItemID" />
-            </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="ItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TodaySpecialItems_Items">
-          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
-          <End Role="TodaySpecialItems" Type="Self.TodaySpecialItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="ItemID" />
-            </Principal>
-            <Dependent Role="TodaySpecialItems">
-              <PropertyRef Name="ItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PushToken_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="PushToken" Type="Self.PushToken" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="PushToken">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubUser_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="SubUser" Type="Self.SubUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="SubUser">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransferOrder_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="TransferOrder">
-              <PropertyRef Name="FromLocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransferOrder_Locations1">
-          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
-          <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="TransferOrder">
-              <PropertyRef Name="ToLocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetailModifier_Modifiers">
-          <End Role="Modifiers" Type="Self.Modifier" Multiplicity="0..1" />
-          <End Role="OrderDetailModifier" Type="Self.OrderDetailModifier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Modifiers">
-              <PropertyRef Name="ModifierID" />
-            </Principal>
-            <Dependent Role="OrderDetailModifier">
-              <PropertyRef Name="ModifierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderCheckout_Orders">
-          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderCheckout" Type="Self.OrderCheckout" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="OrderCheckout">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetail_Orders">
-          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetailModifier_OrderDetail">
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="0..1" />
-          <End Role="OrderDetailModifier" Type="Self.OrderDetailModifier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderDetail">
-              <PropertyRef Name="OrderDetailID" />
-            </Principal>
-            <Dependent Role="OrderDetailModifier">
-              <PropertyRef Name="OrderDetailID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_SubUser">
-          <End Role="SubUser" Type="Self.SubUser" Multiplicity="0..1" />
-          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubUser">
-              <PropertyRef Name="SubUserID" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="OrderTakerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_SubUser1">
-          <End Role="SubUser" Type="Self.SubUser" Multiplicity="0..1" />
-          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubUser">
-              <PropertyRef Name="SubUserID" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="DeliverUserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransferOrder_Orders">
-          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="TransferOrder" Type="Self.TransferOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="TransferOrder">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ItemModifiersJunc">
-          <End Role="Items" Type="Self.Item" Multiplicity="*" />
-          <End Role="Modifiers" Type="Self.Modifier" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="db_a8354f_turkishpizzaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ApplicationInfoes" EntityType="Self.ApplicationInfo" />
-          <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
-          <EntitySet Name="Banners" EntityType="Self.Banner" />
-          <EntitySet Name="Brands" EntityType="Self.Brand" />
-          <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
-          <EntitySet Name="CustomerDetails" EntityType="Self.CustomerDetail" />
-          <EntitySet Name="CustomerOrderDetails" EntityType="Self.CustomerOrderDetail" />
-          <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrder" />
-          <EntitySet Name="CustomerPayments" EntityType="Self.CustomerPayment" />
-          <EntitySet Name="Deliveries" EntityType="Self.Delivery" />
-          <EntitySet Name="DeliveryAreaBrandJuncs" EntityType="Self.DeliveryAreaBrandJunc" />
-          <EntitySet Name="Items" EntityType="Self.Item" />
-          <EntitySet Name="Locations" EntityType="Self.Location" />
-          <EntitySet Name="Modifiers" EntityType="Self.Modifier" />
-          <EntitySet Name="Offers" EntityType="Self.Offer" />
-          <EntitySet Name="OrderCheckouts" EntityType="Self.OrderCheckout" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
-          <EntitySet Name="OrderDetailModifiers" EntityType="Self.OrderDetailModifier" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="PushTokens" EntityType="Self.PushToken" />
-          <EntitySet Name="Status" EntityType="Self.Status" />
-          <EntitySet Name="SubUsers" EntityType="Self.SubUser" />
-          <EntitySet Name="TodaySpecialItems" EntityType="Self.TodaySpecialItem" />
-          <EntitySet Name="TransferOrders" EntityType="Self.TransferOrder" />
-          <EntitySet Name="Units" EntityType="Self.Unit" />
-          <AssociationSet Name="FK_Banners_Brand" Association="Self.FK_Banners_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Banners" EntitySet="Banners" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Category_Brand" Association="Self.FK_Category_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Category" EntitySet="Categories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Brand" Association="Self.FK_Customer_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DeliveryAreaBrandJunc_Brand" Association="Self.FK_DeliveryAreaBrandJunc_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJuncs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_Brand" Association="Self.FK_Locations_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Locations" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Modifiers_Brand" Association="Self.FK_Modifiers_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Modifiers" EntitySet="Modifiers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offers_Brand" Association="Self.FK_Offers_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Offers" EntitySet="Offers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubUser_Brand" Association="Self.FK_SubUser_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="SubUser" EntitySet="SubUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Category_Locations" Association="Self.FK_Category_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Category" EntitySet="Categories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Items_Items" Association="Self.FK_Items_Items">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Items" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Locations" Association="Self.FK_Customer_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerAddresses_Customer" Association="Self.FK_CustomerAddresses_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerDetail_Customer" Association="Self.FK_CustomerDetail_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerDetail" EntitySet="CustomerDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerPayment_Customer" Association="Self.FK_CustomerPayment_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerPayment" EntitySet="CustomerPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerOrders_Orders" Association="Self.FK_CustomerOrders_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="CustomerOrders" EntitySet="CustomerOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" Association="Self.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
-            <End Role="Delivery" EntitySet="Deliveries" />
-            <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJuncs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Items_Unit" Association="Self.FK_Items_Unit">
-            <End Role="Unit" EntitySet="Units" />
-            <End Role="Items" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offers_Items" Association="Self.FK_Offers_Items">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="Offers" EntitySet="Offers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetail_Items" Association="Self.FK_OrderDetail_Items">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TodaySpecialItems_Items" Association="Self.FK_TodaySpecialItems_Items">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="TodaySpecialItems" EntitySet="TodaySpecialItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Locations" Association="Self.FK_Orders_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PushToken_Locations" Association="Self.FK_PushToken_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="PushToken" EntitySet="PushTokens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubUser_Locations" Association="Self.FK_SubUser_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="SubUser" EntitySet="SubUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransferOrder_Locations" Association="Self.FK_TransferOrder_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="TransferOrder" EntitySet="TransferOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransferOrder_Locations1" Association="Self.FK_TransferOrder_Locations1">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="TransferOrder" EntitySet="TransferOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetailModifier_Modifiers" Association="Self.FK_OrderDetailModifier_Modifiers">
-            <End Role="Modifiers" EntitySet="Modifiers" />
-            <End Role="OrderDetailModifier" EntitySet="OrderDetailModifiers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderCheckout_Orders" Association="Self.FK_OrderCheckout_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrderCheckout" EntitySet="OrderCheckouts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetail_Orders" Association="Self.FK_OrderDetail_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetailModifier_OrderDetail" Association="Self.FK_OrderDetailModifier_OrderDetail">
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-            <End Role="OrderDetailModifier" EntitySet="OrderDetailModifiers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_SubUser" Association="Self.FK_Orders_SubUser">
-            <End Role="SubUser" EntitySet="SubUsers" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_SubUser1" Association="Self.FK_Orders_SubUser1">
-            <End Role="SubUser" EntitySet="SubUsers" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransferOrder_Orders" Association="Self.FK_TransferOrder_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="TransferOrder" EntitySet="TransferOrders" />
-          </AssociationSet>
-          <AssociationSet Name="ItemModifiersJunc" Association="Self.ItemModifiersJunc">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="Modifiers" EntitySet="Modifiers" />
-          </AssociationSet>
           <FunctionImport Name="GetCustomerDeatil" ReturnType="Collection(db_a8354f_turkishpizzaModel.GetCustomerDeatil_Result)" />
           <FunctionImport Name="sp_authenticateUser_admin" ReturnType="Collection(db_a8354f_turkishpizzaModel.sp_authenticateUser_admin_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
@@ -3093,8 +2074,167 @@
             <Parameter Name="BrandId" Mode="In" Type="Int32" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ApplicationInfoes" EntityType="db_a8354f_turkishpizzaModel.ApplicationInfo" />
+          <EntitySet Name="AppSettings" EntityType="db_a8354f_turkishpizzaModel.AppSetting" />
+          <EntitySet Name="Banners" EntityType="db_a8354f_turkishpizzaModel.Banner" />
+          <EntitySet Name="Brands" EntityType="db_a8354f_turkishpizzaModel.Brand" />
+          <EntitySet Name="Categories" EntityType="db_a8354f_turkishpizzaModel.Category" />
+          <EntitySet Name="Customers" EntityType="db_a8354f_turkishpizzaModel.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="db_a8354f_turkishpizzaModel.CustomerAddress" />
+          <EntitySet Name="CustomerDetails" EntityType="db_a8354f_turkishpizzaModel.CustomerDetail" />
+          <EntitySet Name="CustomerOrderDetails" EntityType="db_a8354f_turkishpizzaModel.CustomerOrderDetail" />
+          <EntitySet Name="CustomerOrders" EntityType="db_a8354f_turkishpizzaModel.CustomerOrder" />
+          <EntitySet Name="CustomerPayments" EntityType="db_a8354f_turkishpizzaModel.CustomerPayment" />
+          <EntitySet Name="Deliveries" EntityType="db_a8354f_turkishpizzaModel.Delivery" />
+          <EntitySet Name="DeliveryAreaBrandJuncs" EntityType="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc" />
+          <EntitySet Name="Items" EntityType="db_a8354f_turkishpizzaModel.Item" />
+          <EntitySet Name="Locations" EntityType="db_a8354f_turkishpizzaModel.Location" />
+          <EntitySet Name="Modifiers" EntityType="db_a8354f_turkishpizzaModel.Modifier" />
+          <EntitySet Name="Offers" EntityType="db_a8354f_turkishpizzaModel.Offer" />
+          <EntitySet Name="OrderCheckouts" EntityType="db_a8354f_turkishpizzaModel.OrderCheckout" />
+          <EntitySet Name="OrderDetails" EntityType="db_a8354f_turkishpizzaModel.OrderDetail" />
+          <EntitySet Name="OrderDetailModifiers" EntityType="db_a8354f_turkishpizzaModel.OrderDetailModifier" />
+          <EntitySet Name="Orders" EntityType="db_a8354f_turkishpizzaModel.Order" />
+          <EntitySet Name="PushTokens" EntityType="db_a8354f_turkishpizzaModel.PushToken" />
           <EntitySet Name="Reservations" EntityType="db_a8354f_turkishpizzaModel.Reservation" />
-        </EntityContainer>
+          <EntitySet Name="Status" EntityType="db_a8354f_turkishpizzaModel.Status" />
+          <EntitySet Name="SubUsers" EntityType="db_a8354f_turkishpizzaModel.SubUser" />
+          <EntitySet Name="TodaySpecialItems" EntityType="db_a8354f_turkishpizzaModel.TodaySpecialItem" />
+          <EntitySet Name="TransferOrders" EntityType="db_a8354f_turkishpizzaModel.TransferOrder" />
+          <EntitySet Name="Units" EntityType="db_a8354f_turkishpizzaModel.Unit" />
+          <AssociationSet Name="FK_Banners_Brand" Association="db_a8354f_turkishpizzaModel.FK_Banners_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Banner" EntitySet="Banners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Brand" Association="db_a8354f_turkishpizzaModel.FK_Category_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Brand" Association="db_a8354f_turkishpizzaModel.FK_Customer_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryAreaBrandJunc_Brand" Association="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJuncs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Brand" Association="db_a8354f_turkishpizzaModel.FK_Locations_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modifiers_Brand" Association="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Modifier" EntitySet="Modifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offers_Brand" Association="db_a8354f_turkishpizzaModel.FK_Offers_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubUser_Brand" Association="db_a8354f_turkishpizzaModel.FK_SubUser_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="SubUser" EntitySet="SubUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Locations" Association="db_a8354f_turkishpizzaModel.FK_Category_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Items" Association="db_a8354f_turkishpizzaModel.FK_Items_Items">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Locations" Association="db_a8354f_turkishpizzaModel.FK_Customer_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddresses_Customer" Association="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDetail_Customer" Association="db_a8354f_turkishpizzaModel.FK_CustomerDetail_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerDetail" EntitySet="CustomerDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerPayment_Customer" Association="db_a8354f_turkishpizzaModel.FK_CustomerPayment_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerPayment" EntitySet="CustomerPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerOrders_Orders" Association="db_a8354f_turkishpizzaModel.FK_CustomerOrders_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" Association="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
+            <End Role="Delivery" EntitySet="Deliveries" />
+            <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJuncs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Unit" Association="db_a8354f_turkishpizzaModel.FK_Items_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offers_Items" Association="db_a8354f_turkishpizzaModel.FK_Offers_Items">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Items" Association="db_a8354f_turkishpizzaModel.FK_OrderDetail_Items">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TodaySpecialItems_Items" Association="db_a8354f_turkishpizzaModel.FK_TodaySpecialItems_Items">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="TodaySpecialItem" EntitySet="TodaySpecialItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Locations" Association="db_a8354f_turkishpizzaModel.FK_Orders_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PushToken_Locations" Association="db_a8354f_turkishpizzaModel.FK_PushToken_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="PushToken" EntitySet="PushTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubUser_Locations" Association="db_a8354f_turkishpizzaModel.FK_SubUser_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="SubUser" EntitySet="SubUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferOrder_Locations" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="TransferOrder" EntitySet="TransferOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferOrder_Locations1" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="TransferOrder" EntitySet="TransferOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetailModifier_Modifiers" Association="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_Modifiers">
+            <End Role="Modifier" EntitySet="Modifiers" />
+            <End Role="OrderDetailModifier" EntitySet="OrderDetailModifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderCheckout_Orders" Association="db_a8354f_turkishpizzaModel.FK_OrderCheckout_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderCheckout" EntitySet="OrderCheckouts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Orders" Association="db_a8354f_turkishpizzaModel.FK_OrderDetail_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetailModifier_OrderDetail" Association="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_OrderDetail">
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+            <End Role="OrderDetailModifier" EntitySet="OrderDetailModifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_SubUser" Association="db_a8354f_turkishpizzaModel.FK_Orders_SubUser">
+            <End Role="SubUser" EntitySet="SubUsers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_SubUser1" Association="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1">
+            <End Role="SubUser" EntitySet="SubUsers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferOrder_Orders" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="TransferOrder" EntitySet="TransferOrders" />
+          </AssociationSet>
+          <AssociationSet Name="ItemModifiersJunc" Association="db_a8354f_turkishpizzaModel.ItemModifiersJunc">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Modifier" EntitySet="Modifiers" />
+          </AssociationSet>
+          </EntityContainer>
         <ComplexType Name="GetCustomerDeatil_Result">
           <Property Type="Int32" Name="OrderNo" Nullable="true" />
           <Property Type="String" Name="FullName" Nullable="true" MaxLength="200" />
@@ -3698,6 +2838,413 @@
           <Property Type="String" Name="TimeSlot" Nullable="false" MaxLength="32" />
           <Property Type="Double" Name="Sales" Nullable="false" />
         </ComplexType>
+        <EntityType Name="ApplicationInfo">
+          <Key>
+            <PropertyRef Name="AppInfoID" />
+          </Key>
+          <Property Name="AppInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ItemSettingTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsItemSetting" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BranchTiming" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="Discountdescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="WhatsappNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Banners_Brand" FromRole="Banner" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyURl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessKey" Type="Int64" />
+          <Property Name="LastUpdateBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Banners" Relationship="db_a8354f_turkishpizzaModel.FK_Banners_Brand" FromRole="Brand" ToRole="Banner" />
+          <NavigationProperty Name="Categories" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Brand" FromRole="Brand" ToRole="Category" />
+          <NavigationProperty Name="Customers" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Brand" FromRole="Brand" ToRole="Customer" />
+          <NavigationProperty Name="DeliveryAreaBrandJuncs" Relationship="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_Brand" FromRole="Brand" ToRole="DeliveryAreaBrandJunc" />
+          <NavigationProperty Name="Locations" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Brand" ToRole="Location" />
+          <NavigationProperty Name="Modifiers" Relationship="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand" FromRole="Brand" ToRole="Modifier" />
+          <NavigationProperty Name="Offers" Relationship="db_a8354f_turkishpizzaModel.FK_Offers_Brand" FromRole="Brand" ToRole="Offer" />
+          <NavigationProperty Name="SubUsers" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Brand" FromRole="Brand" ToRole="SubUser" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ArabicName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Brand" FromRole="Category" ToRole="Brand" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Category" ToRole="Location" />
+          <NavigationProperty Name="Items" Relationship="db_a8354f_turkishpizzaModel.FK_Items_Items" FromRole="Category" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Brand" FromRole="Customer" ToRole="Brand" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Customer" ToRole="Location" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer" FromRole="Customer" ToRole="CustomerAddress" />
+          <NavigationProperty Name="CustomerDetails" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerDetail_Customer" FromRole="Customer" ToRole="CustomerDetail" />
+          <NavigationProperty Name="CustomerPayments" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerPayment_Customer" FromRole="Customer" ToRole="CustomerPayment" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShortName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="PlaceID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LocationAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer" FromRole="CustomerAddress" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerDetail">
+          <Key>
+            <PropertyRef Name="CustomerDetailID" />
+          </Key>
+          <Property Name="CustomerDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerDetail_Customer" FromRole="CustomerDetail" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerOrderDetail">
+          <Key>
+            <PropertyRef Name="CustomerOrderDetailID" />
+          </Key>
+          <Property Name="CustomerOrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CustomerOrder">
+          <Key>
+            <PropertyRef Name="CustomerOrderID" />
+          </Key>
+          <Property Name="CustomerOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocationURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressNickName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TableNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerOrders_Orders" FromRole="CustomerOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="CustomerPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CardExpire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CVV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerPayment_Customer" FromRole="CustomerPayment" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="DeliveryAreaID" />
+          </Key>
+          <Property Name="DeliveryAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="DeliveryAreaBrandJuncs" Relationship="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" FromRole="Delivery" ToRole="DeliveryAreaBrandJunc" />
+        </EntityType>
+        <EntityType Name="DeliveryAreaBrandJunc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryAreaID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_Brand" FromRole="DeliveryAreaBrandJunc" ToRole="Brand" />
+          <NavigationProperty Name="Delivery" Relationship="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc" FromRole="DeliveryAreaBrandJunc" ToRole="Delivery" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="UnitID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="ItemType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="IsFeatured" Type="Boolean" />
+          <Property Name="Calories" Type="Double" />
+          <NavigationProperty Name="Category" Relationship="db_a8354f_turkishpizzaModel.FK_Items_Items" FromRole="Item" ToRole="Category" />
+          <NavigationProperty Name="Unit" Relationship="db_a8354f_turkishpizzaModel.FK_Items_Unit" FromRole="Item" ToRole="Unit" />
+          <NavigationProperty Name="Offers" Relationship="db_a8354f_turkishpizzaModel.FK_Offers_Items" FromRole="Item" ToRole="Offer" />
+          <NavigationProperty Name="OrderDetails" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Items" FromRole="Item" ToRole="OrderDetail" />
+          <NavigationProperty Name="TodaySpecialItems" Relationship="db_a8354f_turkishpizzaModel.FK_TodaySpecialItems_Items" FromRole="Item" ToRole="TodaySpecialItem" />
+          <NavigationProperty Name="Modifiers" Relationship="db_a8354f_turkishpizzaModel.ItemModifiersJunc" FromRole="Item" ToRole="Modifier" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LicenseID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryServices" Type="Boolean" />
+          <Property Name="DeliveryCharges" Type="Double" />
+          <Property Name="DeliveryTime" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MinOrderAmount" Type="Double" />
+          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="Opentime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Closetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Passcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discounts" Type="Double" />
+          <Property Name="Tax" Type="Double" />
+          <Property Name="IsDineInAllowed" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Location" ToRole="Brand" />
+          <NavigationProperty Name="Categories" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Location" ToRole="Category" />
+          <NavigationProperty Name="Customers" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Location" ToRole="Customer" />
+          <NavigationProperty Name="Orders" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Location" ToRole="Order" />
+          <NavigationProperty Name="PushTokens" Relationship="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" FromRole="Location" ToRole="PushToken" />
+          <NavigationProperty Name="SubUsers" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="Location" ToRole="SubUser" />
+          <NavigationProperty Name="TransferOrders" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" FromRole="Location" ToRole="TransferOrder" />
+          <NavigationProperty Name="TransferOrders1" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" FromRole="Location" ToRole="TransferOrder" />
+        </EntityType>
+        <EntityType Name="Modifier">
+          <Key>
+            <PropertyRef Name="ModifierID" />
+          </Key>
+          <Property Name="ModifierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ArabicName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand" FromRole="Modifier" ToRole="Brand" />
+          <NavigationProperty Name="OrderDetailModifiers" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_Modifiers" FromRole="Modifier" ToRole="OrderDetailModifier" />
+          <NavigationProperty Name="Items" Relationship="db_a8354f_turkishpizzaModel.ItemModifiersJunc" FromRole="Modifier" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="OfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Offers_Brand" FromRole="Offer" ToRole="Brand" />
+          <NavigationProperty Name="Item" Relationship="db_a8354f_turkishpizzaModel.FK_Offers_Items" FromRole="Offer" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="OrderCheckout">
+          <Key>
+            <PropertyRef Name="OrderCheckoutID" />
+          </Key>
+          <Property Name="OrderCheckoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="PaymentMode" Type="Int32" />
+          <Property Name="AmountPaid" Type="Double" />
+          <Property Name="AmountTotal" Type="Double" />
+          <Property Name="GrandTotal" Type="Double" />
+          <Property Name="ServiceCharges" Type="Double" />
+          <Property Name="Tax" Type="Double" />
+          <Property Name="CheckoutDate" Type="DateTime" Precision="3" />
+          <Property Name="SessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdateBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscountAmount" Type="Double" />
+          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_OrderCheckout_Orders" FromRole="OrderCheckout" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="OrderMode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Item" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Items" FromRole="OrderDetail" ToRole="Item" />
+          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Orders" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="OrderDetailModifiers" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_OrderDetail" FromRole="OrderDetail" ToRole="OrderDetailModifier" />
+        </EntityType>
+        <EntityType Name="OrderDetailModifier">
+          <Key>
+            <PropertyRef Name="OrderDetailModifierID" />
+          </Key>
+          <Property Name="OrderDetailModifierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDetailID" Type="Int32" />
+          <Property Name="ModifierID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Modifier" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_Modifiers" FromRole="OrderDetailModifier" ToRole="Modifier" />
+          <NavigationProperty Name="OrderDetail" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_OrderDetail" FromRole="OrderDetailModifier" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="TransactionNo" Type="Int32" />
+          <Property Name="OrderNo" Type="Int32" />
+          <Property Name="OrderType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="SessionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OrderTakerID" Type="Int32" />
+          <Property Name="DeliverUserID" Type="Int32" />
+          <Property Name="LastUpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="OrderPreparedDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderOFDDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderDoneDate" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerOrders" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerOrders_Orders" FromRole="Order" ToRole="CustomerOrder" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Order" ToRole="Location" />
+          <NavigationProperty Name="OrderCheckouts" Relationship="db_a8354f_turkishpizzaModel.FK_OrderCheckout_Orders" FromRole="Order" ToRole="OrderCheckout" />
+          <NavigationProperty Name="OrderDetails" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Orders" FromRole="Order" ToRole="OrderDetail" />
+          <NavigationProperty Name="SubUser" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser" FromRole="Order" ToRole="SubUser" />
+          <NavigationProperty Name="SubUser1" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1" FromRole="Order" ToRole="SubUser" />
+          <NavigationProperty Name="TransferOrders" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" FromRole="Order" ToRole="TransferOrder" />
+        </EntityType>
+        <EntityType Name="PushToken">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Device" Type="Int32" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" FromRole="PushToken" ToRole="Location" />
+        </EntityType>
         <EntityType Name="Reservation">
           <Key>
             <PropertyRef Name="ReservationID" />
@@ -3706,462 +3253,476 @@
           <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MobileNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="BrandID" Type="Int32" />
+          <Property Name="LocationID" Type="Int32" />
           <Property Name="NumberPerson" Type="Int32" />
           <Property Name="ReservationDate" Type="DateTime" Precision="3" />
           <Property Name="LastUpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="SittingArea" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="StatusID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StausID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SubUser">
+          <Key>
+            <PropertyRef Name="SubUserID" />
+          </Key>
+          <Property Name="SubUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Brand" FromRole="SubUser" ToRole="Brand" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="SubUser" ToRole="Location" />
+          <NavigationProperty Name="Orders" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser" FromRole="SubUser" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1" FromRole="SubUser" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="TodaySpecialItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <NavigationProperty Name="Item" Relationship="db_a8354f_turkishpizzaModel.FK_TodaySpecialItems_Items" FromRole="TodaySpecialItem" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="TransferOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="FromLocationID" Type="Int32" />
+          <Property Name="ToLocationID" Type="Int32" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" FromRole="TransferOrder" ToRole="Location" />
+          <NavigationProperty Name="Location1" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" FromRole="TransferOrder" ToRole="Location" />
+          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" FromRole="TransferOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="Items" Relationship="db_a8354f_turkishpizzaModel.FK_Items_Unit" FromRole="Unit" ToRole="Item" />
+        </EntityType>
+        <Association Name="FK_Banners_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Banner" Role="Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryAreaBrandJunc_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc" Role="DeliveryAreaBrandJunc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="DeliveryAreaBrandJunc">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modifiers_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Modifier">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offers_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Offer" Role="Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubUser_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="SubUser">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Items">
+          <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddresses_Customer">
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="db_a8354f_turkishpizzaModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerDetail_Customer">
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.CustomerDetail" Role="CustomerDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerDetail">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerPayment_Customer">
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="db_a8354f_turkishpizzaModel.CustomerPayment" Role="CustomerPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerPayment">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerOrders_Orders">
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.CustomerOrder" Role="CustomerOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="CustomerOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryAreaBrandJunc_DeliveryAreaBrandJunc">
+          <End Type="db_a8354f_turkishpizzaModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc" Role="DeliveryAreaBrandJunc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery">
+              <PropertyRef Name="DeliveryAreaID" />
+            </Principal>
+            <Dependent Role="DeliveryAreaBrandJunc">
+              <PropertyRef Name="DeliveryAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Unit">
+          <End Type="db_a8354f_turkishpizzaModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offers_Items">
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Offer" Role="Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Items">
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TodaySpecialItems_Items">
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TodaySpecialItem" Role="TodaySpecialItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="TodaySpecialItem">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PushToken_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.PushToken" Role="PushToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PushToken">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubUser_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="SubUser">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferOrder_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="TransferOrder">
+              <PropertyRef Name="FromLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferOrder_Locations1">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="TransferOrder">
+              <PropertyRef Name="ToLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetailModifier_Modifiers">
+          <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.OrderDetailModifier" Role="OrderDetailModifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modifier">
+              <PropertyRef Name="ModifierID" />
+            </Principal>
+            <Dependent Role="OrderDetailModifier">
+              <PropertyRef Name="ModifierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderCheckout_Orders">
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.OrderCheckout" Role="OrderCheckout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderCheckout">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Orders">
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetailModifier_OrderDetail">
+          <End Type="db_a8354f_turkishpizzaModel.OrderDetail" Role="OrderDetail" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.OrderDetailModifier" Role="OrderDetailModifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetail">
+              <PropertyRef Name="OrderDetailID" />
+            </Principal>
+            <Dependent Role="OrderDetailModifier">
+              <PropertyRef Name="OrderDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_SubUser">
+          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubUser">
+              <PropertyRef Name="SubUserID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderTakerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_SubUser1">
+          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubUser">
+              <PropertyRef Name="SubUserID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliverUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferOrder_Orders">
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="TransferOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemModifiersJunc">
+          <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="*" />
+          <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db_a8354f_turkishpizzaModelStoreContainer" CdmEntityContainer="db_a8354f_turkishpizzaEntities">
-          <EntitySetMapping Name="ApplicationInfoes">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.ApplicationInfo">
-              <MappingFragment StoreEntitySet="ApplicationInfo">
-                <ScalarProperty Name="AppInfoID" ColumnName="AppInfoID" />
-                <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
-                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
-                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="ItemSettingTitle" ColumnName="ItemSettingTitle" />
-                <ScalarProperty Name="IsItemSetting" ColumnName="IsItemSetting" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AppSettings">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.AppSetting">
-              <MappingFragment StoreEntitySet="AppSetting">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
-                <ScalarProperty Name="BranchTiming" ColumnName="BranchTiming" />
-                <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Discountdescription" ColumnName="Discountdescription" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="WhatsappNo" ColumnName="WhatsappNo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Banners">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Banner">
-              <MappingFragment StoreEntitySet="Banners">
-                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Brand">
-              <MappingFragment StoreEntitySet="Brand">
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
-                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerAddresses">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerAddress">
-              <MappingFragment StoreEntitySet="CustomerAddresses">
-                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
-                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerDetails">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerDetail">
-              <MappingFragment StoreEntitySet="CustomerDetail">
-                <ScalarProperty Name="CustomerDetailID" ColumnName="CustomerDetailID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerOrderDetails">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrderDetail">
-              <MappingFragment StoreEntitySet="CustomerOrderDetail">
-                <ScalarProperty Name="CustomerOrderDetailID" ColumnName="CustomerOrderDetailID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerOrders">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrder">
-              <MappingFragment StoreEntitySet="CustomerOrders">
-                <ScalarProperty Name="CustomerOrderID" ColumnName="CustomerOrderID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="LocationURL" ColumnName="LocationURL" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
-                <ScalarProperty Name="AddressNickName" ColumnName="AddressNickName" />
-                <ScalarProperty Name="TableNo" ColumnName="TableNo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerPayments">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerPayment">
-              <MappingFragment StoreEntitySet="CustomerPayment">
-                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="CardExpire" ColumnName="CardExpire" />
-                <ScalarProperty Name="CVV" ColumnName="CVV" />
-                <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Deliveries">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Delivery">
-              <MappingFragment StoreEntitySet="Delivery">
-                <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DeliveryAreaBrandJuncs">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc">
-              <MappingFragment StoreEntitySet="DeliveryAreaBrandJunc">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Item">
-              <MappingFragment StoreEntitySet="Items">
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="SKU" ColumnName="SKU" />
-                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
-                <ScalarProperty Name="Calories" ColumnName="Calories" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
-              <MappingFragment StoreEntitySet="Locations">
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-                <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
-                <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
-                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
-                <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="Opentime" ColumnName="Opentime" />
-                <ScalarProperty Name="Closetime" ColumnName="Closetime" />
-                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Discounts" ColumnName="Discounts" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Modifiers">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Modifier">
-              <MappingFragment StoreEntitySet="Modifiers">
-                <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Offers">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Offer">
-              <MappingFragment StoreEntitySet="Offers">
-                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
-                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderCheckouts">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderCheckout">
-              <MappingFragment StoreEntitySet="OrderCheckout">
-                <ScalarProperty Name="OrderCheckoutID" ColumnName="OrderCheckoutID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
-                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
-                <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
-                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
-                <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
-                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetail">
-              <MappingFragment StoreEntitySet="OrderDetail">
-                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="OrderMode" ColumnName="OrderMode" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
-                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetailModifiers">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetailModifier">
-              <MappingFragment StoreEntitySet="OrderDetailModifier">
-                <ScalarProperty Name="OrderDetailModifierID" ColumnName="OrderDetailModifierID" />
-                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
-                <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
-                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Order">
-              <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
-                <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
-                <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
-                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
-                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
-                <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
-                <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PushTokens">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.PushToken">
-              <MappingFragment StoreEntitySet="PushToken">
-                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
-                <ScalarProperty Name="Token" ColumnName="Token" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Device" ColumnName="Device" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="StausID" ColumnName="StausID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SubUsers">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.SubUser">
-              <MappingFragment StoreEntitySet="SubUser">
-                <ScalarProperty Name="SubUserID" ColumnName="SubUserID" />
-                <ScalarProperty Name="UserType" ColumnName="UserType" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Designation" ColumnName="Designation" />
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TodaySpecialItems">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TodaySpecialItem">
-              <MappingFragment StoreEntitySet="TodaySpecialItems">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TransferOrders">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TransferOrder">
-              <MappingFragment StoreEntitySet="TransferOrder">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="FromLocationID" ColumnName="FromLocationID" />
-                <ScalarProperty Name="ToLocationID" ColumnName="ToLocationID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Units">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Unit">
-              <MappingFragment StoreEntitySet="Unit">
-                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="ItemModifiersJunc" TypeName="db_a8354f_turkishpizzaModel.ItemModifiersJunc" StoreEntitySet="ItemModifiersJunc">
-            <EndProperty Name="Items">
-              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-            </EndProperty>
-            <EndProperty Name="Modifiers">
-              <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
-            </EndProperty>
-          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="GetCustomerDeatil" FunctionName="db_a8354f_turkishpizzaModel.Store.GetCustomerDeatil">
             <ResultMapping>
               <ComplexTypeMapping TypeName="db_a8354f_turkishpizzaModel.GetCustomerDeatil_Result">
@@ -4982,15 +4543,389 @@
           <FunctionImportMapping FunctionImportName="sp_updateOrderstatus_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_updateOrderstatus_Admin" />
           <FunctionImportMapping FunctionImportName="sp_UpdateTodaySpecial_Admin" FunctionName="db_a8354f_turkishpizzaModel.Store.sp_UpdateTodaySpecial_Admin" />
           <FunctionImportMapping FunctionImportName="spSaveCustomer" FunctionName="db_a8354f_turkishpizzaModel.Store.spSaveCustomer" />
+          <EntitySetMapping Name="ApplicationInfoes">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.ApplicationInfo">
+              <MappingFragment StoreEntitySet="ApplicationInfo">
+                <ScalarProperty Name="IsItemSetting" ColumnName="IsItemSetting" />
+                <ScalarProperty Name="ItemSettingTitle" ColumnName="ItemSettingTitle" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
+                <ScalarProperty Name="AppInfoID" ColumnName="AppInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.AppSetting">
+              <MappingFragment StoreEntitySet="AppSetting">
+                <ScalarProperty Name="WhatsappNo" ColumnName="WhatsappNo" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Discountdescription" ColumnName="Discountdescription" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+                <ScalarProperty Name="BranchTiming" ColumnName="BranchTiming" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banners">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Banner">
+              <MappingFragment StoreEntitySet="Banners">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+                <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyURl" ColumnName="CompanyURl" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAddresses">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerAddress">
+              <MappingFragment StoreEntitySet="CustomerAddresses">
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerDetails">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerDetail">
+              <MappingFragment StoreEntitySet="CustomerDetail">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerDetailID" ColumnName="CustomerDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerOrderDetails">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrderDetail">
+              <MappingFragment StoreEntitySet="CustomerOrderDetail">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerOrderDetailID" ColumnName="CustomerOrderDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerOrders">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerOrder">
+              <MappingFragment StoreEntitySet="CustomerOrders">
+                <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+                <ScalarProperty Name="AddressNickName" ColumnName="AddressNickName" />
+                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LocationURL" ColumnName="LocationURL" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerOrderID" ColumnName="CustomerOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerPayments">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.CustomerPayment">
+              <MappingFragment StoreEntitySet="CustomerPayment">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="CardExpire" ColumnName="CardExpire" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deliveries">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Delivery">
+              <MappingFragment StoreEntitySet="Delivery">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryAreaBrandJuncs">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc">
+              <MappingFragment StoreEntitySet="DeliveryAreaBrandJunc">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="DeliveryAreaID" ColumnName="DeliveryAreaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+                <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+                <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+                <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+                <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modifiers">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Modifier">
+              <MappingFragment StoreEntitySet="Modifiers">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offers">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Offer">
+              <MappingFragment StoreEntitySet="Offers">
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderCheckouts">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderCheckout">
+              <MappingFragment StoreEntitySet="OrderCheckout">
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="ServiceCharges" ColumnName="ServiceCharges" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="AmountTotal" ColumnName="AmountTotal" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderCheckoutID" ColumnName="OrderCheckoutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="OrderMode" ColumnName="OrderMode" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetailModifiers">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.OrderDetailModifier">
+              <MappingFragment StoreEntitySet="OrderDetailModifier">
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="OrderDetailModifierID" ColumnName="OrderDetailModifierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OrderDoneDate" ColumnName="OrderDoneDate" />
+                <ScalarProperty Name="OrderOFDDate" ColumnName="OrderOFDDate" />
+                <ScalarProperty Name="OrderPreparedDate" ColumnName="OrderPreparedDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateBy" ColumnName="LastUpdateBy" />
+                <ScalarProperty Name="DeliverUserID" ColumnName="DeliverUserID" />
+                <ScalarProperty Name="OrderTakerID" ColumnName="OrderTakerID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PushTokens">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.PushToken">
+              <MappingFragment StoreEntitySet="PushToken">
+                <ScalarProperty Name="Device" ColumnName="Device" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
             <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="SittingArea" ColumnName="SittingArea" />
                 <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
                 <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
                 <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
                 <ScalarProperty Name="NumberPerson" ColumnName="NumberPerson" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -4998,7 +4933,78 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StausID" ColumnName="StausID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubUsers">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.SubUser">
+              <MappingFragment StoreEntitySet="SubUser">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="SubUserID" ColumnName="SubUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TodaySpecialItems">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TodaySpecialItem">
+              <MappingFragment StoreEntitySet="TodaySpecialItems">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferOrders">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.TransferOrder">
+              <MappingFragment StoreEntitySet="TransferOrder">
+                <ScalarProperty Name="ToLocationID" ColumnName="ToLocationID" />
+                <ScalarProperty Name="FromLocationID" ColumnName="FromLocationID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ItemModifiersJunc" TypeName="db_a8354f_turkishpizzaModel.ItemModifiersJunc" StoreEntitySet="ItemModifiersJunc">
+            <EndProperty Name="Modifier">
+              <ScalarProperty Name="ModifierID" ColumnName="ModifierID" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

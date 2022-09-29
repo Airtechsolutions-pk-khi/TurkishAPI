@@ -160,3 +160,30 @@ D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.csproj.CoreCompileInputs
 D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.csproj.CopyComplete
 D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.dll
 D:\Project\Turkish-Pizza\TurkishAPI\DAL\obj\Release\DAL.pdb
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\DAL.dll.config
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\DAL.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\DAL.pdb
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\EntityFramework.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\Newtonsoft.Json.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Helpers.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Mvc.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Razor.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Razor.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\EntityFramework.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\Newtonsoft.Json.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Helpers.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Mvc.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.Razor.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\bin\Release\System.Web.WebPages.Razor.xml
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\obj\Release\DAL.csproj.AssemblyReference.cache
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\obj\Release\DAL.csproj.CopyComplete
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\obj\Release\DAL.dll
+C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\DAL\obj\Release\DAL.pdb

@@ -49,6 +49,7 @@ namespace BAL.Repositories
                 var _dsorderdetailmodifier = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[2])).ToObject<List<OrderModifiersBLL>>();
                 var _dsOrdercheckout = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[3])).ToObject<List<OrderCheckoutBLL>>();
                 var _dsOrderCustomerData = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[4])).ToObject<List<OrderCustomerBLL>>();
+
                 //var _dsLocation = JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject<LocationsBLL>();
                 //var _dsBrand = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject< List<BrandsBLL>>().FirstOrDefault();
 
@@ -220,10 +221,10 @@ namespace BAL.Repositories
                 rsp.description = "Failed";
                 return rsp;
             }
-        }   
+        }
         public RspOrderPunch OrderPunch(OrdersBLL obj)
         {
-            
+
             RspOrderPunch rsp;
             var t1 = 1601;
             var t2 = 2359;
@@ -231,7 +232,7 @@ namespace BAL.Repositories
             var t4 = 0259;
             try
             {
-               
+
                 var currDate = DateTime.UtcNow.AddMinutes(300);
                 var isAllowcheckout = true;
 
@@ -671,6 +672,7 @@ namespace BAL.Repositories
                         OrderStatus = i.OrderStatus
                     });
                 }
+
                 rsp.Orders = bll;
                 rsp.status = 1;
                 rsp.description = "Success";
@@ -1012,6 +1014,25 @@ namespace BAL.Repositories
                 return null;
             }
         }
+        public DataSet GetReservationsAdmin(int LocationID, string StartDate, string EndDate, string Search)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[4];
+                p[0] = new SqlParameter("@LocationID", LocationID);
+                p[1] = new SqlParameter("@StartDate", StartDate);
+                p[2] = new SqlParameter("@EndDate", EndDate);
+                p[3] = new SqlParameter("@Search", Search);
+
+                ds = (new DBHelper().GetDatasetFromSP)("sp_GetAdminReservations_api", p);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public DataSet GetAdminOrder_ADO(int LocationID)
         {
             DataSet ds = new DataSet();
@@ -1021,6 +1042,22 @@ namespace BAL.Repositories
                 p[0] = new SqlParameter("@LocationID", LocationID);
 
                 ds = (new DBHelper().GetDatasetFromSP)("sp_GetAdminOrders_api", p);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public DataSet GetReservationsCustomer(int CustomerID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[1];
+                p[0] = new SqlParameter("@CustomerID", CustomerID);
+
+                ds = (new DBHelper().GetDatasetFromSP)("sp_GetCustomerReservation_api", p);
                 return ds;
             }
             catch (Exception ex)

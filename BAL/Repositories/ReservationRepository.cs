@@ -29,7 +29,6 @@ namespace BAL.Repositories
             DBContext = contextDB;
         }
 
-
         public RspReservation PostReservation(ReservationBLL obj)
         {
             RspReservation rsp;
@@ -43,7 +42,7 @@ namespace BAL.Repositories
                         {                           
                             Reservation reservation = JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(obj)).ToObject<Reservation>();
                             reservation.LastUpdatedDate = DateTime.UtcNow.AddMinutes(300);
-                            reservation.StatusID = 1;
+                            reservation.StatusID = 300;
                             Reservation data = DBContext.Reservations.Add(reservation);
                             DBContext.SaveChanges();
                             dbContextTransaction.Commit();
@@ -82,6 +81,79 @@ namespace BAL.Repositories
             return rsp;
         }
 
+        public Rsp UpdateReservation(int ReservationID, int StatusID)
+        {
+            Rsp rsp = new Rsp();
+
+            using (var dbContextTransaction = DBContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    if (ReservationID == 0 || ReservationID == 0)
+                    {
+                        rsp.status = (int)eStatus.Exception;
+                        rsp.description = "Cannot be update due to invalid parameter";
+                    }
+                    else
+                    {
+                        var currDate = DateTime.UtcNow.AddMinutes(300);
+
+                        var obj = DBContext.Reservations.Where(x => x.ReservationID == ReservationID).FirstOrDefault();
+                        obj.StatusID = StatusID;
+                        obj.LastUpdatedDate = currDate;
+                        DBContext.Reservations.AddOrUpdate(obj);
+                        DBContext.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        rsp.status = (int)eStatus.Success;
+                        rsp.description = "Reservation Updated";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    rsp.status = (int)eStatus.Exception;
+                    rsp.description = "Sorry! Reservation cannot be updated.";
+                }
+            }
+
+            return rsp;
+        }
+
+        public RspReservationCustomer GetCustReservations(int customerID)
+        {
+            var rsp = new RspReservationCustomer();
+            try
+            {
+                var dataReservation = GetReservationsCustomer(customerID);
+                rsp.Reservations = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(dataReservation.Tables[0])).ToObject<List<ReservationBLL>>();
+                rsp.status = 1;
+                rsp.description = "Success";
+                return rsp;
+            }
+            catch (Exception ex)
+            {
+                rsp.status = 0;
+                rsp.description = "Failed";
+                return rsp;
+            }
+        }
+        public DataSet GetReservationsCustomer(int CustomerID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[1];
+                p[0] = new SqlParameter("@CustomerID", CustomerID);
+
+                ds = (new DBHelper().GetDatasetFromSP)("sp_GetCustomerReservation_api", p);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 
 }

@@ -23,7 +23,7 @@ namespace TurkishAPI.Controllers
             repo = new ReservationRepository(new db_a8354f_turkishpizzaEntities());
         }
 
-       
+        //status 300(pending),301(accepted),302(Completed),303(Cancelled)
         [HttpPost]
         [Route("reservation/post")]
         public HttpResponseMessage PostOrder(ReservationBLL obj)
@@ -49,6 +49,34 @@ namespace TurkishAPI.Controllers
 
         }
 
-       
+        [HttpGet]
+        [Route("reservation/admin/update/{reservationid}/{statusid}")]
+        public HttpResponseMessage UpdateReservation(int reservationid, int statusid)
+        {
+            Rsp rsp = new Rsp();
+            try
+            {
+                rsp = repo.UpdateReservation(reservationid, statusid);
+            }
+            catch (Exception ex)
+            {
+                rsp = new RspCustomerAddress();
+                rsp.status = (int)eStatus.Exception;
+                rsp.description = ex.Message;
+            }
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(rsp);
+            json = Newtonsoft.Json.Linq.JObject.Parse(json).ToString();
+            return new HttpResponseMessage
+            {
+                Content = new StringContent(json, Encoding.UTF8, "text/json")    //  RETURNING json
+            };
+
+        }
+
+        [Route("reservation/customer/{customerid}")]
+        public Rsp GetOrdersCustomer(int customerid)
+        {
+            return repo.GetCustReservations(customerid);
+        }
     }
 }
