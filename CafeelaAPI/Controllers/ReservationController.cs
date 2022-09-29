@@ -74,7 +74,7 @@ namespace TurkishAPI.Controllers
         }
 
         [Route("reservation/customer/{customerid}")]
-        public Rsp GetOrdersCustomer(int customerid)
+        public RspReservationCustomer GetOrdersCustomer(int customerid)
         {
             return repo.GetCustReservations(customerid);
         }
