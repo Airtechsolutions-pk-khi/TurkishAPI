@@ -366,6 +366,7 @@ namespace DAL.Models
     public class ReservationBLL
     {
         public int? CustomerID { get; set; }
+        public int? StatusID{ get; set; }
         public int ReservationID { get; set; }
         public string FullName { get; set; }
         public string MobileNumber { get; set; }
