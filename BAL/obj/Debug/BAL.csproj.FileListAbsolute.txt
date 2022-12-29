@@ -285,3 +285,44 @@ C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\BAL\obj\Debug\BAL.cs
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\BAL\obj\Debug\BAL.csproj.CopyComplete
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\BAL\obj\Debug\BAL.dll
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\BAL\obj\Debug\BAL.pdb
+D:\Projects\Turkish_API\BAL\bin\Debug\BAL.dll.config
+D:\Projects\Turkish_API\BAL\bin\Debug\BAL.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\BAL.pdb
+D:\Projects\Turkish_API\BAL\bin\Debug\DAL.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\EntityFramework.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.AccessControl.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.Permissions.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.Principal.Windows.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Helpers.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Mvc.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Razor.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\WebApiContrib.Formatting.JavaScriptSerializer.dll
+D:\Projects\Turkish_API\BAL\bin\Debug\DAL.pdb
+D:\Projects\Turkish_API\BAL\bin\Debug\DAL.dll.config
+D:\Projects\Turkish_API\BAL\bin\Debug\EntityFramework.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Net.Http.Formatting.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.AccessControl.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.Permissions.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Security.Principal.Windows.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Helpers.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Mvc.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.Razor.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Projects\Turkish_API\BAL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Projects\Turkish_API\BAL\obj\Debug\BAL.csproj.AssemblyReference.cache
+D:\Projects\Turkish_API\BAL\obj\Debug\BAL.csproj.CoreCompileInputs.cache
+D:\Projects\Turkish_API\BAL\obj\Debug\BAL.csproj.CopyComplete
+D:\Projects\Turkish_API\BAL\obj\Debug\BAL.dll
+D:\Projects\Turkish_API\BAL\obj\Debug\BAL.pdb

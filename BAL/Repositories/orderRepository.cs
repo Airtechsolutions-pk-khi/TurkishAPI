@@ -226,10 +226,7 @@ namespace BAL.Repositories
         {
 
             RspOrderPunch rsp;
-            var t1 = 1601;
-            var t2 = 2359;
-            var t3 = 0001;
-            var t4 = 0259;
+            
             try
             {
 
@@ -260,9 +257,13 @@ namespace BAL.Repositories
                     {
                         if (settings.Opentime != null && settings.Closetime != null)
                         {
+                            var t1 = int.Parse(TimeSpan.Parse(settings.Opentime).ToString("hhmm"));
+                            var t2 = 2359;
+                            var t3 = 0001;
+                            var t4 = int.Parse(TimeSpan.Parse(settings.Closetime).ToString("hhmm"));
                             var currTimeint = int.Parse(Convert.ToDateTime(currDate).ToString("HHmm"));
                             isAllowcheckout = (currTimeint > t1 && currTimeint < t2) || (currTimeint > t3 && currTimeint < t4) ? true : false;
-                        }
+                        }   
                     }
                     catch { }
                 }

@@ -40,6 +40,7 @@ namespace DAL.DBEntities
         public Nullable<System.DateTime> LastUpdatedDate { get; set; }
         public Nullable<int> StatusID { get; set; }
         public Nullable<bool> IsFeatured { get; set; }
+        public Nullable<bool> IsApplyDiscount { get; set; }
         public Nullable<double> Calories { get; set; }
     
         public virtual Category Category { get; set; }
