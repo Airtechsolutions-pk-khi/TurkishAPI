@@ -194,8 +194,6 @@ C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\CafeelaAPI\obj\Debug
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\CafeelaAPI\obj\Debug\TurkishAPI.csproj.CopyComplete
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\CafeelaAPI\obj\Debug\TurkishAPI.dll
 C:\Office\Airtech\Turkish API - DEMO Foodcarrier\TurkishAPI\CafeelaAPI\obj\Debug\TurkishAPI.pdb
-D:\Projects\Turkish_API\CafeelaAPI\bin\EntityFramework.SqlServer.dll
-D:\Projects\Turkish_API\CafeelaAPI\bin\System.Net.Http.Formatting.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\TurkishAPI.dll.config
 D:\Projects\Turkish_API\CafeelaAPI\bin\TurkishAPI.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\TurkishAPI.pdb
@@ -251,9 +249,11 @@ D:\Projects\Turkish_API\CafeelaAPI\bin\roslyn\VBCSCompiler.exe.config
 D:\Projects\Turkish_API\CafeelaAPI\bin\BAL.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\DAL.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\EntityFramework.dll
+D:\Projects\Turkish_API\CafeelaAPI\bin\EntityFramework.SqlServer.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\Microsoft.Web.Infrastructure.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Turkish_API\CafeelaAPI\bin\Swashbuckle.Core.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Configuration.ConfigurationManager.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Net.Http.Formatting.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Security.AccessControl.dll
@@ -267,6 +267,7 @@ D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Razor.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Webpages.Deployment.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Webpages.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Turkish_API\CafeelaAPI\bin\WebActivatorEx.dll
 D:\Projects\Turkish_API\CafeelaAPI\bin\BAL.pdb
 D:\Projects\Turkish_API\CafeelaAPI\bin\BAL.dll.config
 D:\Projects\Turkish_API\CafeelaAPI\bin\DAL.pdb
@@ -284,6 +285,7 @@ D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Webpages.Deployment.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Webpages.Razor.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Helpers.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Mvc.xml
+D:\Projects\Turkish_API\CafeelaAPI\bin\System.Net.Http.Formatting.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Http.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\System.Web.Http.WebHost.xml
 D:\Projects\Turkish_API\CafeelaAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -292,5 +294,3 @@ D:\Projects\Turkish_API\CafeelaAPI\obj\Debug\TurkishAPI.csproj.CoreCompileInputs
 D:\Projects\Turkish_API\CafeelaAPI\obj\Debug\TurkishAPI.csproj.CopyComplete
 D:\Projects\Turkish_API\CafeelaAPI\obj\Debug\TurkishAPI.dll
 D:\Projects\Turkish_API\CafeelaAPI\obj\Debug\TurkishAPI.pdb
-D:\Projects\Turkish_API\CafeelaAPI\bin\Swashbuckle.Core.dll
-D:\Projects\Turkish_API\CafeelaAPI\bin\WebActivatorEx.dll

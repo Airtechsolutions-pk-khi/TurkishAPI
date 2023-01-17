@@ -292,3 +292,5 @@ D:\Projects\Turkish_API\CafeelaAPI\obj\Release\TurkishAPI.csproj.CoreCompileInpu
 D:\Projects\Turkish_API\CafeelaAPI\obj\Release\TurkishAPI.csproj.CopyComplete
 D:\Projects\Turkish_API\CafeelaAPI\obj\Release\TurkishAPI.dll
 D:\Projects\Turkish_API\CafeelaAPI\obj\Release\TurkishAPI.pdb
+D:\Projects\Turkish_API\CafeelaAPI\bin\Swashbuckle.Core.dll
+D:\Projects\Turkish_API\CafeelaAPI\bin\WebActivatorEx.dll

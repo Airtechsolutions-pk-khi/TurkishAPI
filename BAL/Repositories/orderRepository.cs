@@ -100,7 +100,7 @@ namespace BAL.Repositories
                         oc = new OrderCheckoutBLL();
                         oc.AmountPaid = _OC.AmountPaid;
                         oc.AmountTotal = _OC.AmountTotal;
-                        oc.CheckoutDate = _OC.CheckoutDate.ToString();
+                        oc.CheckoutDate = _OC.CheckoutDate;
                         oc.GrandTotal = _OC.GrandTotal;
                         oc.OrderCheckoutID = _OC.OrderCheckoutID;
                         oc.PaymentMode = _OC.PaymentMode;
@@ -187,7 +187,7 @@ namespace BAL.Repositories
                         CustomerID = i.CustomerID,
                         DeliverUserID = i.DeliverUserID,
                         LocationID = i.LocationID,
-                        OrderDate = i.OrderDate.ToString(),
+                        OrderDate = i.OrderDate,
                         OrderDeliveryDate = Convert.ToDateTime(i.OrderDate).AddMinutes(45).ToShortTimeString(),
                         OrderNo = i.OrderNo,
                         OrderTakerID = i.OrderTakerID,
@@ -226,7 +226,7 @@ namespace BAL.Repositories
         {
 
             RspOrderPunch rsp;
-            
+
             try
             {
 
@@ -263,7 +263,7 @@ namespace BAL.Repositories
                             var t4 = int.Parse(TimeSpan.Parse(settings.Closetime).ToString("hhmm"));
                             var currTimeint = int.Parse(Convert.ToDateTime(currDate).ToString("HHmm"));
                             isAllowcheckout = (currTimeint > t1 && currTimeint < t2) || (currTimeint > t3 && currTimeint < t4) ? true : false;
-                        }   
+                        }
                     }
                     catch { }
                 }
@@ -464,7 +464,7 @@ namespace BAL.Repositories
                     {
                         oc.AmountPaid = _OC.AmountPaid;
                         oc.AmountTotal = _OC.AmountTotal;
-                        oc.CheckoutDate = Convert.ToDateTime(_OC.CheckoutDate).ToString("yyyy-MM-dd HH:mm:ss");
+                        oc.CheckoutDate = _OC.CheckoutDate;
                         oc.GrandTotal = _OC.GrandTotal;
                         oc.OrderCheckoutID = _OC.OrderCheckoutID;
                         oc.PaymentMode = _OC.PaymentMode;
@@ -506,7 +506,7 @@ namespace BAL.Repositories
                         CustomerID = i.CustomerID,
                         DeliverUserID = i.DeliverUserID,
                         LocationID = i.LocationID,
-                        OrderDate = Convert.ToDateTime(i.OrderDate).ToString("dd-MM-yyyy HH:mm:ss"),
+                        //OrderDate = Convert.ToDateTime(i.OrderDate).ToString("dd-MM-yyyy HH:mm:ss"),
                         OrderNo = i.OrderNo,
                         OrderTakerID = i.OrderTakerID,
                         OrderType = i.OrderType,
@@ -607,7 +607,7 @@ namespace BAL.Repositories
                         oc = new OrderCheckoutBLL();
                         oc.AmountPaid = _OC.AmountPaid;
                         oc.AmountTotal = _OC.AmountTotal;
-                        oc.CheckoutDate = Convert.ToDateTime(_OC.CheckoutDate).ToString("yyyy-MM-dd HH:mm:ss");
+                        oc.CheckoutDate = _OC.CheckoutDate;
                         oc.GrandTotal = _OC.GrandTotal;
                         oc.OrderCheckoutID = _OC.OrderCheckoutID;
                         oc.PaymentMode = _OC.PaymentMode;
@@ -641,6 +641,7 @@ namespace BAL.Repositories
                         ocustomer.AddressNickName = _OCustomer.AddressNickName == null ? "" : _OCustomer.AddressNickName;
                         ocustomer.AddressType = _OCustomer.AddressType == null ? "Other" : _OCustomer.AddressType;
                         ocustomer.OrderID = _OCustomer.OrderID;
+                        ocustomer.TableNo = _OCustomer.TableNo;
                     }
                     else ocustomer = null;
 
@@ -654,7 +655,7 @@ namespace BAL.Repositories
                         CustomerID = i.CustomerID,
                         DeliverUserID = i.DeliverUserID,
                         LocationID = i.LocationID,
-                        OrderDate = Convert.ToDateTime(i.OrderDate).ToString("dd/MM/yyyy hh:mm tt"),
+                        OrderDate = i.OrderDate,
                         OrderNo = i.OrderNo,
                         OrderTakerID = i.OrderTakerID,
                         OrderType = i.OrderType,
@@ -763,7 +764,7 @@ namespace BAL.Repositories
                         oc = new OrderCheckoutBLL();
                         oc.AmountPaid = _OC.AmountPaid;
                         oc.AmountTotal = _OC.AmountTotal;
-                        oc.CheckoutDate = Convert.ToDateTime(_OC.CheckoutDate).ToString("yyyy-MM-dd HH:mm:ss");
+                        oc.CheckoutDate = _OC.CheckoutDate;
                         oc.GrandTotal = _OC.GrandTotal;
                         oc.OrderCheckoutID = _OC.OrderCheckoutID;
                         oc.PaymentMode = _OC.PaymentMode;
@@ -810,7 +811,7 @@ namespace BAL.Repositories
                         CustomerID = i.CustomerID,
                         DeliverUserID = i.DeliverUserID,
                         LocationID = i.LocationID,
-                        OrderDate = Convert.ToDateTime(i.OrderDate).ToString("dd/MM/yyyy hh:mm tt"),
+                        OrderDate = i.OrderDate,
                         OrderNo = i.OrderNo,
                         OrderTakerID = i.OrderTakerID,
                         OrderType = i.OrderType,

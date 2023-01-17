@@ -381,25 +381,25 @@ namespace DAL.Models
     public class OrdersBLL
     {
         public int OrderID { get; set; }
-        public Nullable<int> CustomerID { get; set; }
-        public Nullable<int> TransactionNo { get; set; }
-        public Nullable<int> OrderNo { get; set; }
+        public int? CustomerID { get; set; }
+        public int? TransactionNo { get; set; }
+        public int? OrderNo { get; set; }
 
         public string AppVersion { get; set; }  
         public string OrderType { get; set; }
-        public string OrderDate { get; set; }
+        public DateTime? OrderDate { get; set; }
         public string OrderDeliveryDate { get; set; }
         public Nullable<System.DateTime> OrderPreparedDate { get; set; }
         public Nullable<System.DateTime> OrderOFDDate { get; set; }
         public Nullable<System.DateTime> OrderDoneDate { get; set; }
-        public Nullable<int> StatusID { get; set; }
+        public int? StatusID { get; set; }
         public string SessionID { get; set; }
-        public Nullable<int> OrderTakerID { get; set; }
-        public Nullable<int> DeliverUserID { get; set; }
+        public int? OrderTakerID { get; set; }
+        public int? DeliverUserID { get; set; }
         public string LastUpdateBy { get; set; }
         public Nullable<System.DateTime> LastUpdateDT { get; set; }
-        public Nullable<int> LocationID { get; set; }
-        public Nullable<int> BrandID { get; set; }
+        public int? LocationID { get; set; }
+        public int? BrandID { get; set; }
         public string BrandName { get; set; }
         public string BrandLogo { get; set; }
         public string Remarks { get; set; }
@@ -424,8 +424,8 @@ namespace DAL.Models
     public class OrderDetailBLL
     {
         public int OrderDetailID { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> ItemID { get; set; }
+        public int? OrderID { get; set; }
+        public int? ItemID { get; set; }
         public string ItemName { get; set; }
         public Nullable<double> Quantity { get; set; }
         public Nullable<double> Price { get; set; }
@@ -440,30 +440,30 @@ namespace DAL.Models
     public class OrderModifiersBLL
     {
         public int OrderDetailModifierID { get; set; }
-        public Nullable<int> OrderDetailID { get; set; }
-        public Nullable<int> ModifierID { get; set; }
+        public int? OrderDetailID { get; set; }
+        public int? ModifierID { get; set; }
         public string ModifierName { get; set; }
         public Nullable<double> Quantity { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<double> Cost { get; set; }
-        public Nullable<int> StatusID { get; set; }
+        public int? StatusID { get; set; }
         public string LastUpdateBy { get; set; }
         public Nullable<System.DateTime> LastUpdateDT { get; set; }
     }
     public class OrderCheckoutBLL
     {
         public int OrderCheckoutID { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> PaymentMode { get; set; }
+        public int? OrderID { get; set; }
+        public int? PaymentMode { get; set; }
         public Nullable<double> AmountPaid { get; set; }
         public Nullable<double> AmountTotal { get; set; }
         public Nullable<double> ServiceCharges { get; set; }
         public Nullable<double> GrandTotal { get; set; }
         public Nullable<double> Tax { get; set; }
         public Nullable<double> DiscountAmount { get; set; }
-        public string CheckoutDate { get; set; }
+        public DateTime? CheckoutDate { get; set; }
         public string SessionID { get; set; }
-        public Nullable<int> StatusID { get; set; }
+        public int? StatusID { get; set; }
         public string LastUpdateBy { get; set; }
         public Nullable<System.DateTime> LastUpdatedDate { get; set; }
     }

@@ -35,7 +35,8 @@ namespace TurkishAPI.Controllers
 			SqlConnection con = new 
 				SqlConnection(@"Data Source=sql5107.site4now.net;Initial Catalog=db_a8354f_turkishpizza;User ID=db_a8354f_turkishpizza_admin;Password=Tech@123;MultipleActiveResultSets=True;Application Name=EntityFr");
 			SqlCommand cmd = new SqlCommand("spSaveCustomer", con);
-			cmd.CommandType = CommandType.StoredProcedure;			cmd.Parameters.AddWithValue("CusromerName", cus.CusromerName);
+			cmd.CommandType = CommandType.StoredProcedure;			
+			cmd.Parameters.AddWithValue("CusromerName", cus.CusromerName);
 			cmd.Parameters.AddWithValue("Mobile", cus.Mobile);
 			cmd.Parameters.AddWithValue("@Email", cus.Email);
 			cmd.Parameters.AddWithValue("image", cus.image);
