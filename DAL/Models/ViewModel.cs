@@ -18,6 +18,11 @@ namespace DAL.Models
         public int status { get; set; }
 
     }
+    public class ResponseModel
+    {
+        public bool IsSuccess { get; set; }
+        public string Error { get; set; }
+    }
     public class RspBrandList : Rsp
     {
         public List<BrandsBLL> brands { get; set; }
@@ -355,6 +360,33 @@ namespace DAL.Models
         public Nullable<int> LocationID { get; set; }
         public Nullable<int> StatusID { get; set; }
 
+    }
+    public class OdooRsp
+    {
+        public string message { get; set; }
+        public string status { get; set; }
+        public int token { get; set; }
+    }
+    public class authBLL
+    {
+        public string url { get; set; }
+        public string db { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public int test { get; set; }
+    }
+    public class invoiceBLL
+    {
+        public string url { get; set; }
+        public string db { get; set; }
+        public int token { get; set; }
+        public string password { get; set; }
+        public int partner_id { get; set; }
+        public int product_id { get; set; }
+        public int quantity { get; set; }
+
+        public int price_unit { get; set; }
+               
     }
     public class TransferOrderBLL
     {
