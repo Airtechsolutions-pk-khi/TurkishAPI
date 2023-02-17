@@ -46,6 +46,8 @@ namespace DAL.DBEntities
         public Nullable<int> BrandID { get; set; }
         public string Opentime { get; set; }
         public string Closetime { get; set; }
+        public string ReservationOpen { get; set; }
+        public string ReservationClose { get; set; }
         public string Passcode { get; set; }
         public string Currency { get; set; }
         public Nullable<double> Discounts { get; set; }

@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Delivery" Width="1.5" PointX="0.75" PointY="24.125" />
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc" Width="1.5" PointX="3" PointY="29.125" />
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Item" Width="1.5" PointX="7.5" PointY="32.125" />
-        <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Location" Width="1.5" PointX="3" PointY="46.875" />
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Modifier" Width="1.5" PointX="9.75" PointY="26.875" />
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Offer" Width="1.5" PointX="12.75" PointY="30.875" />
         <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.OrderCheckout" Width="1.5" PointX="9.75" PointY="52.5" />
@@ -37,13 +36,10 @@
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Category_Brand" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Customer_Brand" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_Brand" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Locations_Brand" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Offers_Brand" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_SubUser_Brand" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Category_Locations" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Items_Items" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Customer_Locations" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_CustomerDetail_Customer" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_CustomerPayment_Customer" />
@@ -53,11 +49,6 @@
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Offers_Items" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_OrderDetail_Items" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TodaySpecialItems_Items" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Orders_Locations" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" />
-        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_Modifiers" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_OrderCheckout_Orders" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_OrderDetail_Orders" />
@@ -66,6 +57,15 @@
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" />
         <AssociationConnector Association="db_a8354f_turkishpizzaModel.ItemModifiersJunc" />
+        <EntityTypeShape EntityType="db_a8354f_turkishpizzaModel.Location" Width="1.5" PointX="3" PointY="32.25" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Locations_Brand" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Category_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Customer_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_Orders_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" />
+        <AssociationConnector Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

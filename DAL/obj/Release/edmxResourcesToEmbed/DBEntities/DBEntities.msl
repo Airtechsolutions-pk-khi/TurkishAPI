@@ -1023,6 +1023,7 @@
     <EntitySetMapping Name="Items">
       <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Item">
         <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="IsApplyDiscount" ColumnName="IsApplyDiscount" />
           <ScalarProperty Name="Calories" ColumnName="Calories" />
           <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
           <ScalarProperty Name="StatusID" ColumnName="StatusID" />
@@ -1041,37 +1042,6 @@
           <ScalarProperty Name="UnitID" ColumnName="UnitID" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Locations">
-      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
-        <MappingFragment StoreEntitySet="Locations">
-          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
-          <ScalarProperty Name="Tax" ColumnName="Tax" />
-          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
-          <ScalarProperty Name="Currency" ColumnName="Currency" />
-          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
-          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
-          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
-          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
-          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
-          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
-          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
-          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1282,5 +1252,38 @@
         <ScalarProperty Name="ItemID" ColumnName="ItemID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+          <ScalarProperty Name="ReservationClose" ColumnName="ReservationClose" />
+          <ScalarProperty Name="ReservationOpen" ColumnName="ReservationOpen" />
+          <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+          <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -21,10 +21,10 @@ namespace DAL.DBEntities
             this.Categories = new HashSet<Category>();
             this.Customers = new HashSet<Customer>();
             this.DeliveryAreaBrandJuncs = new HashSet<DeliveryAreaBrandJunc>();
-            this.Locations = new HashSet<Location>();
             this.Modifiers = new HashSet<Modifier>();
             this.Offers = new HashSet<Offer>();
             this.SubUsers = new HashSet<SubUser>();
+            this.Locations = new HashSet<Location>();
         }
     
         public int BrandID { get; set; }
@@ -50,12 +50,12 @@ namespace DAL.DBEntities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryAreaBrandJunc> DeliveryAreaBrandJuncs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Location> Locations { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Modifier> Modifiers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Offer> Offers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubUser> SubUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Location> Locations { get; set; }
     }
 }

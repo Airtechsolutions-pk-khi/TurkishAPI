@@ -49,7 +49,7 @@ namespace TurkishAPI.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("reservation/admin/update/{reservationid}/{statusid}")]
         public HttpResponseMessage UpdateReservation(int reservationid, int statusid)
         {

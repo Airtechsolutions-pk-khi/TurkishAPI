@@ -216,6 +216,7 @@
     <Property Name="StatusID" Type="int" />
     <Property Name="IsFeatured" Type="bit" />
     <Property Name="Calories" Type="float" />
+    <Property Name="IsApplyDiscount" Type="bit" />
   </EntityType>
   <EntityType Name="Locations">
     <Key>
@@ -241,6 +242,8 @@
     <Property Name="BrandID" Type="int" />
     <Property Name="Opentime" Type="nvarchar" MaxLength="50" />
     <Property Name="Closetime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReservationOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReservationClose" Type="nvarchar" MaxLength="50" />
     <Property Name="Passcode" Type="nvarchar" MaxLength="50" />
     <Property Name="Currency" Type="nvarchar" MaxLength="50" />
     <Property Name="Discounts" Type="float" />
@@ -1077,6 +1080,7 @@
     <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
     <Parameter Name="StatusID" Type="int" Mode="In" />
     <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+    <Parameter Name="IsApplyDiscount" Type="bit" Mode="In" />
     <Parameter Name="Calories" Type="float" Mode="In" />
     <Parameter Name="ItemID" Type="int" Mode="In" />
   </Function>
@@ -1108,6 +1112,8 @@
     <Parameter Name="BrandID" Type="int" Mode="In" />
     <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
     <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReservationOpen" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReservationClose" Type="nvarchar" Mode="In" />
     <Parameter Name="LocationID" Type="int" Mode="In" />
     <Parameter Name="Currency" Type="nvarchar" Mode="In" />
     <Parameter Name="Passcode" Type="nvarchar" Mode="In" />
@@ -1294,6 +1300,7 @@
     <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
     <Parameter Name="StatusID" Type="int" Mode="In" />
     <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+    <Parameter Name="IsApplyDiscount" Type="bit" Mode="In" />
     <Parameter Name="Calories" Type="float" Mode="In" />
     <Parameter Name="ItemID" Type="int" Mode="In" />
   </Function>
@@ -1317,6 +1324,8 @@
     <Parameter Name="BrandID" Type="int" Mode="In" />
     <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
     <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReservationOpen" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReservationClose" Type="nvarchar" Mode="In" />
     <Parameter Name="LocationID" Type="int" Mode="In" />
     <Parameter Name="Currency" Type="nvarchar" Mode="In" />
     <Parameter Name="Passcode" Type="nvarchar" Mode="In" />

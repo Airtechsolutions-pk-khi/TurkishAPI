@@ -235,7 +235,6 @@ D:\Project\Swich\SwichAPI_GIT\DAL\bin\Debug\System.Web.Razor.xml
 D:\Project\Swich\SwichAPI_GIT\DAL\bin\Debug\System.Web.WebPages.xml
 D:\Project\Swich\SwichAPI_GIT\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\Swich\SwichAPI_GIT\DAL\bin\Debug\System.Web.WebPages.Razor.xml
-D:\Project\Swich\SwichAPI_GIT\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 D:\Project\Swich\SwichAPI_GIT\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\Project\Swich\SwichAPI_GIT\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Project\Swich\SwichAPI_GIT\DAL\obj\Debug\DAL.dll
