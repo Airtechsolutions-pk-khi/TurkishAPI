@@ -372,10 +372,10 @@ namespace DAL.Models
         public string MobileNumber { get; set; }
         public int? BrandID { get; set; }
         public int? NumberPerson { get; set; }
-        public DateTime ReservationDate { get; set; }
+        public string ReservationDate { get; set; }
         public string SittingArea { get; set; }
         public string LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
         public int? LocationID{ get; set; }
     }
     public class OrdersBLL

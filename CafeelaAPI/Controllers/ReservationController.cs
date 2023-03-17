@@ -78,5 +78,10 @@ namespace TurkishAPI.Controllers
         {
             return repo.GetCustReservations(customerid);
         }
+        [Route("reservation/admin/{brandid}")]
+        public RspReservationCustomer GetReservationAdmin(int brandid)
+        {
+            return repo.GetAdminReservations(brandid);
+        }
     }
 }

@@ -138,6 +138,26 @@ namespace BAL.Repositories
                 return rsp;
             }
         }
+
+        public RspReservationCustomer GetAdminReservations(int brandid)
+        {
+            var rsp = new RspReservationCustomer();
+            try
+            {
+                var dataReservation = GetReservationsAdmin(brandid);
+                rsp.Reservations = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(dataReservation.Tables[0])).ToObject<List<ReservationBLL>>();
+                rsp.status = 1;
+                rsp.description = "Success";
+                return rsp;
+            }
+            catch (Exception ex)
+            {
+                rsp.status = 0;
+                rsp.description = "Failed";
+                return rsp;
+            }
+        }
+
         public DataSet GetReservationsCustomer(int CustomerID)
         {
             DataSet ds = new DataSet();
@@ -147,6 +167,22 @@ namespace BAL.Repositories
                 p[0] = new SqlParameter("@CustomerID", CustomerID);
 
                 ds = (new DBHelper().GetDatasetFromSP)("sp_GetCustomerReservation_api", p);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public DataSet GetReservationsAdmin(int BrandID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[1];
+                p[0] = new SqlParameter("@BrandID", BrandID);
+
+                ds = (new DBHelper().GetDatasetFromSP)("sp_GetAdminReservation_api", p);
                 return ds;
             }
             catch (Exception ex)
