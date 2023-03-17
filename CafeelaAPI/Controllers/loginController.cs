@@ -1,12 +1,16 @@
 ﻿using BAL.Repositories;
 using DAL.DBEntities;
 using DAL.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace TurkishAPI.Controllers
@@ -58,5 +62,61 @@ namespace TurkishAPI.Controllers
 
         }
 
+        [HttpPost]
+        [Route("login/post/odooAuth")]
+        public  async Task<OdooRsp> posttest(authBLL obj)
+        {
+             
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{ConfigurationManager.AppSettings["AuthPath"]}");
+           var py = new authBLL();
+            {
+                py.url = obj.url;
+                py.db = obj.db;
+                py.username = obj.username;
+                py.password = obj.password;
+            };
+            request.Content = new StringContent(JsonConvert.SerializeObject(py));
+            request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+            var response = await SendClientRequest(request);
+            var resultJSON = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<OdooRsp>(resultJSON);
+            return result;
+        }
+       
+        [HttpPost]
+        [Route("login/post/Invoice")]
+        public async Task<HttpResponseMessage> PostInvoice(invoiceBLL obj)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{ConfigurationManager.AppSettings["InvoicePath"]}");
+            var invoice = new invoiceBLL();
+            {
+                invoice.url = obj.url;
+                invoice.db = obj.db;
+                invoice.token = obj.token;
+                invoice.password = obj.password;
+                invoice.partner_id = obj.partner_id;
+                invoice.product_id = obj.product_id;
+                invoice.quantity = obj.quantity;
+                invoice.price_unit = obj.price_unit;
+        
+            };
+            request.Content = new StringContent(JsonConvert.SerializeObject(invoice));
+            request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+            var response = await SendClientRequest(request);
+            return response;
+        }
+        private async Task<HttpResponseMessage> SendClientRequest(HttpRequestMessage request)
+        {
+            try
+            {
+                var httpClient = new HttpClient();
+                var response = await httpClient.SendAsync(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

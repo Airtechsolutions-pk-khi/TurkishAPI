@@ -41,7 +41,6 @@ namespace DAL.DBEntities
         public virtual DbSet<Delivery> Deliveries { get; set; }
         public virtual DbSet<DeliveryAreaBrandJunc> DeliveryAreaBrandJuncs { get; set; }
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Modifier> Modifiers { get; set; }
         public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<OrderCheckout> OrderCheckouts { get; set; }
@@ -55,6 +54,7 @@ namespace DAL.DBEntities
         public virtual DbSet<TodaySpecialItem> TodaySpecialItems { get; set; }
         public virtual DbSet<TransferOrder> TransferOrders { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
     
         public virtual ObjectResult<GetCustomerDeatil_Result> GetCustomerDeatil()
         {
@@ -797,7 +797,7 @@ namespace DAL.DBEntities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("sp_insertDelivery_Admin", nameParameter, amountParameter, statusIDParameter, deliveryAreaIDParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> sp_insertItem_Admin(Nullable<int> categoryID, Nullable<int> unitID, string name, string arabicName, string description, string image, string barcode, string sKU, Nullable<int> displayOrder, Nullable<double> price, Nullable<double> cost, string itemType, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<bool> isFeatured, Nullable<double> calories, Nullable<int> itemID)
+        public virtual ObjectResult<Nullable<decimal>> sp_insertItem_Admin(Nullable<int> categoryID, Nullable<int> unitID, string name, string arabicName, string description, string image, string barcode, string sKU, Nullable<int> displayOrder, Nullable<double> price, Nullable<double> cost, string itemType, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<bool> isFeatured, Nullable<bool> isApplyDiscount, Nullable<double> calories, Nullable<int> itemID)
         {
             var categoryIDParameter = categoryID.HasValue ?
                 new ObjectParameter("CategoryID", categoryID) :
@@ -863,6 +863,10 @@ namespace DAL.DBEntities
                 new ObjectParameter("IsFeatured", isFeatured) :
                 new ObjectParameter("IsFeatured", typeof(bool));
     
+            var isApplyDiscountParameter = isApplyDiscount.HasValue ?
+                new ObjectParameter("IsApplyDiscount", isApplyDiscount) :
+                new ObjectParameter("IsApplyDiscount", typeof(bool));
+    
             var caloriesParameter = calories.HasValue ?
                 new ObjectParameter("Calories", calories) :
                 new ObjectParameter("Calories", typeof(double));
@@ -871,7 +875,7 @@ namespace DAL.DBEntities
                 new ObjectParameter("ItemID", itemID) :
                 new ObjectParameter("ItemID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("sp_insertItem_Admin", categoryIDParameter, unitIDParameter, nameParameter, arabicNameParameter, descriptionParameter, imageParameter, barcodeParameter, sKUParameter, displayOrderParameter, priceParameter, costParameter, itemTypeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, isFeaturedParameter, caloriesParameter, itemIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("sp_insertItem_Admin", categoryIDParameter, unitIDParameter, nameParameter, arabicNameParameter, descriptionParameter, imageParameter, barcodeParameter, sKUParameter, displayOrderParameter, priceParameter, costParameter, itemTypeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, isFeaturedParameter, isApplyDiscountParameter, caloriesParameter, itemIDParameter);
         }
     
         public virtual int sp_insertItemModifiers_Admin(string modifiers, Nullable<int> itemID)
@@ -900,7 +904,7 @@ namespace DAL.DBEntities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertItemSettings_Admin", brandIDParameter, itemsParameter);
         }
     
-        public virtual int sp_insertLocation_Admin(string name, string description, string address, string contactNo, string email, Nullable<int> licenseID, Nullable<bool> deliveryServices, Nullable<double> deliveryCharges, string deliveryTime, Nullable<double> minOrderAmount, string longitude, string latitude, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, string imageURL, Nullable<int> brandID, string opentime, string closetime, Nullable<int> locationID, string currency, string passcode, Nullable<double> discounts, Nullable<double> tax)
+        public virtual int sp_insertLocation_Admin(string name, string description, string address, string contactNo, string email, Nullable<int> licenseID, Nullable<bool> deliveryServices, Nullable<double> deliveryCharges, string deliveryTime, Nullable<double> minOrderAmount, string longitude, string latitude, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, string imageURL, Nullable<int> brandID, string opentime, string closetime, string reservationOpen, string reservationClose, Nullable<int> locationID, string currency, string passcode, Nullable<double> discounts, Nullable<double> tax)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -978,6 +982,14 @@ namespace DAL.DBEntities
                 new ObjectParameter("Closetime", closetime) :
                 new ObjectParameter("Closetime", typeof(string));
     
+            var reservationOpenParameter = reservationOpen != null ?
+                new ObjectParameter("ReservationOpen", reservationOpen) :
+                new ObjectParameter("ReservationOpen", typeof(string));
+    
+            var reservationCloseParameter = reservationClose != null ?
+                new ObjectParameter("ReservationClose", reservationClose) :
+                new ObjectParameter("ReservationClose", typeof(string));
+    
             var locationIDParameter = locationID.HasValue ?
                 new ObjectParameter("LocationID", locationID) :
                 new ObjectParameter("LocationID", typeof(int));
@@ -998,7 +1010,7 @@ namespace DAL.DBEntities
                 new ObjectParameter("Tax", tax) :
                 new ObjectParameter("Tax", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertLocation_Admin", nameParameter, descriptionParameter, addressParameter, contactNoParameter, emailParameter, licenseIDParameter, deliveryServicesParameter, deliveryChargesParameter, deliveryTimeParameter, minOrderAmountParameter, longitudeParameter, latitudeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, imageURLParameter, brandIDParameter, opentimeParameter, closetimeParameter, locationIDParameter, currencyParameter, passcodeParameter, discountsParameter, taxParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertLocation_Admin", nameParameter, descriptionParameter, addressParameter, contactNoParameter, emailParameter, licenseIDParameter, deliveryServicesParameter, deliveryChargesParameter, deliveryTimeParameter, minOrderAmountParameter, longitudeParameter, latitudeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, imageURLParameter, brandIDParameter, opentimeParameter, closetimeParameter, reservationOpenParameter, reservationCloseParameter, locationIDParameter, currencyParameter, passcodeParameter, discountsParameter, taxParameter);
         }
     
         public virtual int sp_insertModifier_Admin(string name, string arabicName, string description, string image, Nullable<double> price, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<int> brandID, Nullable<int> modifierID)
@@ -1594,7 +1606,7 @@ namespace DAL.DBEntities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateDelivery_Admin", deliveryAreaIDParameter, nameParameter, amountParameter, statusIDParameter);
         }
     
-        public virtual int sp_updateItem_Admin(Nullable<int> categoryID, Nullable<int> unitID, string name, string arabicName, string description, string image, string barcode, string sKU, Nullable<int> displayOrder, Nullable<double> price, Nullable<double> cost, string itemType, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<bool> isFeatured, Nullable<double> calories, Nullable<int> itemID)
+        public virtual int sp_updateItem_Admin(Nullable<int> categoryID, Nullable<int> unitID, string name, string arabicName, string description, string image, string barcode, string sKU, Nullable<int> displayOrder, Nullable<double> price, Nullable<double> cost, string itemType, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<bool> isFeatured, Nullable<bool> isApplyDiscount, Nullable<double> calories, Nullable<int> itemID)
         {
             var categoryIDParameter = categoryID.HasValue ?
                 new ObjectParameter("CategoryID", categoryID) :
@@ -1660,6 +1672,10 @@ namespace DAL.DBEntities
                 new ObjectParameter("IsFeatured", isFeatured) :
                 new ObjectParameter("IsFeatured", typeof(bool));
     
+            var isApplyDiscountParameter = isApplyDiscount.HasValue ?
+                new ObjectParameter("IsApplyDiscount", isApplyDiscount) :
+                new ObjectParameter("IsApplyDiscount", typeof(bool));
+    
             var caloriesParameter = calories.HasValue ?
                 new ObjectParameter("Calories", calories) :
                 new ObjectParameter("Calories", typeof(double));
@@ -1668,10 +1684,10 @@ namespace DAL.DBEntities
                 new ObjectParameter("ItemID", itemID) :
                 new ObjectParameter("ItemID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateItem_Admin", categoryIDParameter, unitIDParameter, nameParameter, arabicNameParameter, descriptionParameter, imageParameter, barcodeParameter, sKUParameter, displayOrderParameter, priceParameter, costParameter, itemTypeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, isFeaturedParameter, caloriesParameter, itemIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateItem_Admin", categoryIDParameter, unitIDParameter, nameParameter, arabicNameParameter, descriptionParameter, imageParameter, barcodeParameter, sKUParameter, displayOrderParameter, priceParameter, costParameter, itemTypeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, isFeaturedParameter, isApplyDiscountParameter, caloriesParameter, itemIDParameter);
         }
     
-        public virtual int sp_updateLocation_Admin(string name, string description, string address, string contactNo, string email, Nullable<int> licenseID, Nullable<bool> deliveryServices, Nullable<double> deliveryCharges, string deliveryTime, Nullable<double> minOrderAmount, string longitude, string latitude, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, string imageURL, Nullable<int> brandID, string opentime, string closetime, Nullable<int> locationID, string currency, string passcode, Nullable<double> discounts, Nullable<double> tax)
+        public virtual int sp_updateLocation_Admin(string name, string description, string address, string contactNo, string email, Nullable<int> licenseID, Nullable<bool> deliveryServices, Nullable<double> deliveryCharges, string deliveryTime, Nullable<double> minOrderAmount, string longitude, string latitude, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, string imageURL, Nullable<int> brandID, string opentime, string closetime, string reservationOpen, string reservationClose, Nullable<int> locationID, string currency, string passcode, Nullable<double> discounts, Nullable<double> tax)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -1749,6 +1765,14 @@ namespace DAL.DBEntities
                 new ObjectParameter("Closetime", closetime) :
                 new ObjectParameter("Closetime", typeof(string));
     
+            var reservationOpenParameter = reservationOpen != null ?
+                new ObjectParameter("ReservationOpen", reservationOpen) :
+                new ObjectParameter("ReservationOpen", typeof(string));
+    
+            var reservationCloseParameter = reservationClose != null ?
+                new ObjectParameter("ReservationClose", reservationClose) :
+                new ObjectParameter("ReservationClose", typeof(string));
+    
             var locationIDParameter = locationID.HasValue ?
                 new ObjectParameter("LocationID", locationID) :
                 new ObjectParameter("LocationID", typeof(int));
@@ -1769,7 +1793,7 @@ namespace DAL.DBEntities
                 new ObjectParameter("Tax", tax) :
                 new ObjectParameter("Tax", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateLocation_Admin", nameParameter, descriptionParameter, addressParameter, contactNoParameter, emailParameter, licenseIDParameter, deliveryServicesParameter, deliveryChargesParameter, deliveryTimeParameter, minOrderAmountParameter, longitudeParameter, latitudeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, imageURLParameter, brandIDParameter, opentimeParameter, closetimeParameter, locationIDParameter, currencyParameter, passcodeParameter, discountsParameter, taxParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateLocation_Admin", nameParameter, descriptionParameter, addressParameter, contactNoParameter, emailParameter, licenseIDParameter, deliveryServicesParameter, deliveryChargesParameter, deliveryTimeParameter, minOrderAmountParameter, longitudeParameter, latitudeParameter, lastUpdatedByParameter, lastUpdatedDateParameter, statusIDParameter, imageURLParameter, brandIDParameter, opentimeParameter, closetimeParameter, reservationOpenParameter, reservationCloseParameter, locationIDParameter, currencyParameter, passcodeParameter, discountsParameter, taxParameter);
         }
     
         public virtual int sp_updateModifier_Admin(string name, string arabicName, string description, string image, Nullable<double> price, string lastUpdatedBy, Nullable<System.DateTime> lastUpdatedDate, Nullable<int> statusID, Nullable<int> brandID, Nullable<int> modifierID)

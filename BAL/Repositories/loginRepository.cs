@@ -320,5 +320,31 @@ namespace BAL.Repositories
             }
             return rsp;
         }
+        public Rsp InsertAuth(authBLL obj)
+        {
+            Rsp rsp;
+            try
+            {
+                authBLL py = new authBLL();
+                {
+                    py.url = obj.url;
+                    py.db = obj.db;
+                    py.username = obj.username;
+                    py.password = obj.password;
+                }
+                
+
+                rsp = new Rsp();
+                rsp.status = (int)eStatus.Success;
+                rsp.description = "Authenticated";
+            }
+            catch (Exception ex)
+            {
+                rsp = new Rsp();
+                rsp.status = (int)eStatus.Exception;
+                rsp.description = "Failed Authenticated";
+            }
+            return rsp;
+        }
     }
 }

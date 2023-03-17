@@ -33,8 +33,8 @@ namespace DAL.DBEntities
         public Nullable<int> BrandID { get; set; }
     
         public virtual Brand Brand { get; set; }
-        public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item> Items { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

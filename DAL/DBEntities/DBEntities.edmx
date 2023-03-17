@@ -221,6 +221,7 @@
           <Property Name="StatusID" Type="int" />
           <Property Name="IsFeatured" Type="bit" />
           <Property Name="Calories" Type="float" />
+          <Property Name="IsApplyDiscount" Type="bit" />
         </EntityType>
         <EntityType Name="Locations">
           <Key>
@@ -246,6 +247,8 @@
           <Property Name="BrandID" Type="int" />
           <Property Name="Opentime" Type="nvarchar" MaxLength="50" />
           <Property Name="Closetime" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReservationOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReservationClose" Type="nvarchar" MaxLength="50" />
           <Property Name="Passcode" Type="nvarchar" MaxLength="50" />
           <Property Name="Currency" Type="nvarchar" MaxLength="50" />
           <Property Name="Discounts" Type="float" />
@@ -1082,6 +1085,7 @@
           <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
           <Parameter Name="StatusID" Type="int" Mode="In" />
           <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+          <Parameter Name="IsApplyDiscount" Type="bit" Mode="In" />
           <Parameter Name="Calories" Type="float" Mode="In" />
           <Parameter Name="ItemID" Type="int" Mode="In" />
         </Function>
@@ -1113,6 +1117,8 @@
           <Parameter Name="BrandID" Type="int" Mode="In" />
           <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
           <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReservationOpen" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReservationClose" Type="nvarchar" Mode="In" />
           <Parameter Name="LocationID" Type="int" Mode="In" />
           <Parameter Name="Currency" Type="nvarchar" Mode="In" />
           <Parameter Name="Passcode" Type="nvarchar" Mode="In" />
@@ -1299,6 +1305,7 @@
           <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
           <Parameter Name="StatusID" Type="int" Mode="In" />
           <Parameter Name="IsFeatured" Type="bit" Mode="In" />
+          <Parameter Name="IsApplyDiscount" Type="bit" Mode="In" />
           <Parameter Name="Calories" Type="float" Mode="In" />
           <Parameter Name="ItemID" Type="int" Mode="In" />
         </Function>
@@ -1322,6 +1329,8 @@
           <Parameter Name="BrandID" Type="int" Mode="In" />
           <Parameter Name="Opentime" Type="nvarchar" Mode="In" />
           <Parameter Name="Closetime" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReservationOpen" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReservationClose" Type="nvarchar" Mode="In" />
           <Parameter Name="LocationID" Type="int" Mode="In" />
           <Parameter Name="Currency" Type="nvarchar" Mode="In" />
           <Parameter Name="Passcode" Type="nvarchar" Mode="In" />
@@ -1782,6 +1791,7 @@
             <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="StatusID" Mode="In" Type="Int32" />
             <Parameter Name="IsFeatured" Mode="In" Type="Boolean" />
+            <Parameter Name="IsApplyDiscount" Mode="In" Type="Boolean" />
             <Parameter Name="Calories" Mode="In" Type="Double" />
             <Parameter Name="ItemID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1813,6 +1823,8 @@
             <Parameter Name="BrandID" Mode="In" Type="Int32" />
             <Parameter Name="Opentime" Mode="In" Type="String" />
             <Parameter Name="Closetime" Mode="In" Type="String" />
+            <Parameter Name="ReservationOpen" Mode="In" Type="String" />
+            <Parameter Name="ReservationClose" Mode="In" Type="String" />
             <Parameter Name="LocationID" Mode="In" Type="Int32" />
             <Parameter Name="Currency" Mode="In" Type="String" />
             <Parameter Name="Passcode" Mode="In" Type="String" />
@@ -1999,6 +2011,7 @@
             <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="StatusID" Mode="In" Type="Int32" />
             <Parameter Name="IsFeatured" Mode="In" Type="Boolean" />
+            <Parameter Name="IsApplyDiscount" Mode="In" Type="Boolean" />
             <Parameter Name="Calories" Mode="In" Type="Double" />
             <Parameter Name="ItemID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -2022,6 +2035,8 @@
             <Parameter Name="BrandID" Mode="In" Type="Int32" />
             <Parameter Name="Opentime" Mode="In" Type="String" />
             <Parameter Name="Closetime" Mode="In" Type="String" />
+            <Parameter Name="ReservationOpen" Mode="In" Type="String" />
+            <Parameter Name="ReservationClose" Mode="In" Type="String" />
             <Parameter Name="LocationID" Mode="In" Type="Int32" />
             <Parameter Name="Currency" Mode="In" Type="String" />
             <Parameter Name="Passcode" Mode="In" Type="String" />
@@ -2088,7 +2103,6 @@
           <EntitySet Name="Deliveries" EntityType="db_a8354f_turkishpizzaModel.Delivery" />
           <EntitySet Name="DeliveryAreaBrandJuncs" EntityType="db_a8354f_turkishpizzaModel.DeliveryAreaBrandJunc" />
           <EntitySet Name="Items" EntityType="db_a8354f_turkishpizzaModel.Item" />
-          <EntitySet Name="Locations" EntityType="db_a8354f_turkishpizzaModel.Location" />
           <EntitySet Name="Modifiers" EntityType="db_a8354f_turkishpizzaModel.Modifier" />
           <EntitySet Name="Offers" EntityType="db_a8354f_turkishpizzaModel.Offer" />
           <EntitySet Name="OrderCheckouts" EntityType="db_a8354f_turkishpizzaModel.OrderCheckout" />
@@ -2118,10 +2132,6 @@
             <End Role="Brand" EntitySet="Brands" />
             <End Role="DeliveryAreaBrandJunc" EntitySet="DeliveryAreaBrandJuncs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Locations_Brand" Association="db_a8354f_turkishpizzaModel.FK_Locations_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Location" EntitySet="Locations" />
-          </AssociationSet>
           <AssociationSet Name="FK_Modifiers_Brand" Association="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Modifier" EntitySet="Modifiers" />
@@ -2134,17 +2144,9 @@
             <End Role="Brand" EntitySet="Brands" />
             <End Role="SubUser" EntitySet="SubUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_Category_Locations" Association="db_a8354f_turkishpizzaModel.FK_Category_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Category" EntitySet="Categories" />
-          </AssociationSet>
           <AssociationSet Name="FK_Items_Items" Association="db_a8354f_turkishpizzaModel.FK_Items_Items">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Item" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Locations" Association="db_a8354f_turkishpizzaModel.FK_Customer_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerAddresses_Customer" Association="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer">
             <End Role="Customer" EntitySet="Customers" />
@@ -2182,26 +2184,6 @@
             <End Role="Item" EntitySet="Items" />
             <End Role="TodaySpecialItem" EntitySet="TodaySpecialItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Locations" Association="db_a8354f_turkishpizzaModel.FK_Orders_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PushToken_Locations" Association="db_a8354f_turkishpizzaModel.FK_PushToken_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="PushToken" EntitySet="PushTokens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubUser_Locations" Association="db_a8354f_turkishpizzaModel.FK_SubUser_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="SubUser" EntitySet="SubUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransferOrder_Locations" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="TransferOrder" EntitySet="TransferOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransferOrder_Locations1" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="TransferOrder" EntitySet="TransferOrders" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderDetailModifier_Modifiers" Association="db_a8354f_turkishpizzaModel.FK_OrderDetailModifier_Modifiers">
             <End Role="Modifier" EntitySet="Modifiers" />
             <End Role="OrderDetailModifier" EntitySet="OrderDetailModifiers" />
@@ -2233,6 +2215,39 @@
           <AssociationSet Name="ItemModifiersJunc" Association="db_a8354f_turkishpizzaModel.ItemModifiersJunc">
             <End Role="Item" EntitySet="Items" />
             <End Role="Modifier" EntitySet="Modifiers" />
+          </AssociationSet>
+          <EntitySet Name="Locations" EntityType="db_a8354f_turkishpizzaModel.Location" />
+          <AssociationSet Name="FK_Locations_Brand" Association="db_a8354f_turkishpizzaModel.FK_Locations_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Locations" Association="db_a8354f_turkishpizzaModel.FK_Category_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Locations" Association="db_a8354f_turkishpizzaModel.FK_Customer_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Locations" Association="db_a8354f_turkishpizzaModel.FK_Orders_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PushToken_Locations" Association="db_a8354f_turkishpizzaModel.FK_PushToken_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="PushToken" EntitySet="PushTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubUser_Locations" Association="db_a8354f_turkishpizzaModel.FK_SubUser_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="SubUser" EntitySet="SubUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferOrder_Locations" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="TransferOrder" EntitySet="TransferOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferOrder_Locations1" Association="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="TransferOrder" EntitySet="TransferOrders" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="GetCustomerDeatil_Result">
@@ -2898,10 +2913,10 @@
           <NavigationProperty Name="Categories" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Brand" FromRole="Brand" ToRole="Category" />
           <NavigationProperty Name="Customers" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Brand" FromRole="Brand" ToRole="Customer" />
           <NavigationProperty Name="DeliveryAreaBrandJuncs" Relationship="db_a8354f_turkishpizzaModel.FK_DeliveryAreaBrandJunc_Brand" FromRole="Brand" ToRole="DeliveryAreaBrandJunc" />
-          <NavigationProperty Name="Locations" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="Modifiers" Relationship="db_a8354f_turkishpizzaModel.FK_Modifiers_Brand" FromRole="Brand" ToRole="Modifier" />
           <NavigationProperty Name="Offers" Relationship="db_a8354f_turkishpizzaModel.FK_Offers_Brand" FromRole="Brand" ToRole="Offer" />
           <NavigationProperty Name="SubUsers" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Brand" FromRole="Brand" ToRole="SubUser" />
+          <NavigationProperty Name="Locations" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Brand" ToRole="Location" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -2919,8 +2934,8 @@
           <Property Name="LocationID" Type="Int32" />
           <Property Name="BrandID" Type="Int32" />
           <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Brand" FromRole="Category" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Category" ToRole="Location" />
           <NavigationProperty Name="Items" Relationship="db_a8354f_turkishpizzaModel.FK_Items_Items" FromRole="Category" ToRole="Item" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Category" ToRole="Location" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -2938,10 +2953,10 @@
           <Property Name="BrandID" Type="Int32" />
           <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Brand" FromRole="Customer" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Customer" ToRole="Location" />
           <NavigationProperty Name="CustomerAddresses" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerAddresses_Customer" FromRole="Customer" ToRole="CustomerAddress" />
           <NavigationProperty Name="CustomerDetails" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerDetail_Customer" FromRole="Customer" ToRole="CustomerDetail" />
           <NavigationProperty Name="CustomerPayments" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerPayment_Customer" FromRole="Customer" ToRole="CustomerPayment" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Customer" ToRole="Location" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -3076,44 +3091,7 @@
           <NavigationProperty Name="OrderDetails" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Items" FromRole="Item" ToRole="OrderDetail" />
           <NavigationProperty Name="TodaySpecialItems" Relationship="db_a8354f_turkishpizzaModel.FK_TodaySpecialItems_Items" FromRole="Item" ToRole="TodaySpecialItem" />
           <NavigationProperty Name="Modifiers" Relationship="db_a8354f_turkishpizzaModel.ItemModifiersJunc" FromRole="Item" ToRole="Modifier" />
-        </EntityType>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="LocationID" />
-          </Key>
-          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LicenseID" Type="Int32" Nullable="false" />
-          <Property Name="DeliveryServices" Type="Boolean" />
-          <Property Name="DeliveryCharges" Type="Double" />
-          <Property Name="DeliveryTime" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="MinOrderAmount" Type="Double" />
-          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="StatusID" Type="Int32" />
-          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BrandID" Type="Int32" />
-          <Property Name="Opentime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Closetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Passcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Discounts" Type="Double" />
-          <Property Name="Tax" Type="Double" />
-          <Property Name="IsDineInAllowed" Type="Int32" />
-          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Location" ToRole="Brand" />
-          <NavigationProperty Name="Categories" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Location" ToRole="Category" />
-          <NavigationProperty Name="Customers" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Location" ToRole="Customer" />
-          <NavigationProperty Name="Orders" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Location" ToRole="Order" />
-          <NavigationProperty Name="PushTokens" Relationship="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" FromRole="Location" ToRole="PushToken" />
-          <NavigationProperty Name="SubUsers" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="Location" ToRole="SubUser" />
-          <NavigationProperty Name="TransferOrders" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" FromRole="Location" ToRole="TransferOrder" />
-          <NavigationProperty Name="TransferOrders1" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" FromRole="Location" ToRole="TransferOrder" />
+          <Property Name="IsApplyDiscount" Type="Boolean" />
         </EntityType>
         <EntityType Name="Modifier">
           <Key>
@@ -3227,12 +3205,12 @@
           <Property Name="OrderDoneDate" Type="DateTime" Precision="3" />
           <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CustomerOrders" Relationship="db_a8354f_turkishpizzaModel.FK_CustomerOrders_Orders" FromRole="Order" ToRole="CustomerOrder" />
-          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Order" ToRole="Location" />
           <NavigationProperty Name="OrderCheckouts" Relationship="db_a8354f_turkishpizzaModel.FK_OrderCheckout_Orders" FromRole="Order" ToRole="OrderCheckout" />
           <NavigationProperty Name="OrderDetails" Relationship="db_a8354f_turkishpizzaModel.FK_OrderDetail_Orders" FromRole="Order" ToRole="OrderDetail" />
           <NavigationProperty Name="SubUser" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser" FromRole="Order" ToRole="SubUser" />
           <NavigationProperty Name="SubUser1" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1" FromRole="Order" ToRole="SubUser" />
           <NavigationProperty Name="TransferOrders" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" FromRole="Order" ToRole="TransferOrder" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Order" ToRole="Location" />
         </EntityType>
         <EntityType Name="PushToken">
           <Key>
@@ -3293,9 +3271,9 @@
           <Property Name="LocationID" Type="Int32" />
           <Property Name="BrandID" Type="Int32" />
           <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Brand" FromRole="SubUser" ToRole="Brand" />
-          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="SubUser" ToRole="Location" />
           <NavigationProperty Name="Orders" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser" FromRole="SubUser" ToRole="Order" />
           <NavigationProperty Name="Orders1" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_SubUser1" FromRole="SubUser" ToRole="Order" />
+          <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="SubUser" ToRole="Location" />
         </EntityType>
         <EntityType Name="TodaySpecialItem">
           <Key>
@@ -3314,9 +3292,9 @@
           <Property Name="OrderID" Type="Int32" />
           <Property Name="FromLocationID" Type="Int32" />
           <Property Name="ToLocationID" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" FromRole="TransferOrder" ToRole="Order" />
           <NavigationProperty Name="Location" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" FromRole="TransferOrder" ToRole="Location" />
           <NavigationProperty Name="Location1" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" FromRole="TransferOrder" ToRole="Location" />
-          <NavigationProperty Name="Order" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Orders" FromRole="TransferOrder" ToRole="Order" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -3377,18 +3355,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Locations_Brand">
-          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Modifiers_Brand">
           <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
           <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="*" />
@@ -3425,18 +3391,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Category_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Items_Items">
           <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="0..1" />
           <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="*" />
@@ -3446,18 +3400,6 @@
             </Principal>
             <Dependent Role="Item">
               <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="LocationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3569,66 +3511,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Orders_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PushToken_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.PushToken" Role="PushToken" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="PushToken">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubUser_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="SubUser">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransferOrder_Locations">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="TransferOrder">
-              <PropertyRef Name="FromLocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransferOrder_Locations1">
-          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="TransferOrder">
-              <PropertyRef Name="ToLocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderDetailModifier_Modifiers">
           <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="0..1" />
           <End Type="db_a8354f_turkishpizzaModel.OrderDetailModifier" Role="OrderDetailModifier" Multiplicity="*" />
@@ -3716,6 +3598,142 @@
         <Association Name="ItemModifiersJunc">
           <End Type="db_a8354f_turkishpizzaModel.Item" Role="Item" Multiplicity="*" />
           <End Type="db_a8354f_turkishpizzaModel.Modifier" Role="Modifier" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LicenseID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryServices" Type="Boolean" />
+          <Property Name="DeliveryCharges" Type="Double" />
+          <Property Name="DeliveryTime" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MinOrderAmount" Type="Double" />
+          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="Opentime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Closetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationOpen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationClose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Passcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discounts" Type="Double" />
+          <Property Name="Tax" Type="Double" />
+          <Property Name="IsDineInAllowed" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="db_a8354f_turkishpizzaModel.FK_Locations_Brand" FromRole="Location" ToRole="Brand" />
+          <NavigationProperty Name="Categories" Relationship="db_a8354f_turkishpizzaModel.FK_Category_Locations" FromRole="Location" ToRole="Category" />
+          <NavigationProperty Name="Customers" Relationship="db_a8354f_turkishpizzaModel.FK_Customer_Locations" FromRole="Location" ToRole="Customer" />
+          <NavigationProperty Name="Orders" Relationship="db_a8354f_turkishpizzaModel.FK_Orders_Locations" FromRole="Location" ToRole="Order" />
+          <NavigationProperty Name="PushTokens" Relationship="db_a8354f_turkishpizzaModel.FK_PushToken_Locations" FromRole="Location" ToRole="PushToken" />
+          <NavigationProperty Name="SubUsers" Relationship="db_a8354f_turkishpizzaModel.FK_SubUser_Locations" FromRole="Location" ToRole="SubUser" />
+          <NavigationProperty Name="TransferOrders" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations" FromRole="Location" ToRole="TransferOrder" />
+          <NavigationProperty Name="TransferOrders1" Relationship="db_a8354f_turkishpizzaModel.FK_TransferOrder_Locations1" FromRole="Location" ToRole="TransferOrder" />
+        </EntityType>
+        <Association Name="FK_Locations_Brand">
+          <End Type="db_a8354f_turkishpizzaModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PushToken_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.PushToken" Role="PushToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PushToken">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubUser_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.SubUser" Role="SubUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="SubUser">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferOrder_Locations">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="TransferOrder">
+              <PropertyRef Name="FromLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferOrder_Locations1">
+          <End Type="db_a8354f_turkishpizzaModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="db_a8354f_turkishpizzaModel.TransferOrder" Role="TransferOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="TransferOrder">
+              <PropertyRef Name="ToLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -4745,6 +4763,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Item">
               <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="IsApplyDiscount" ColumnName="IsApplyDiscount" />
                 <ScalarProperty Name="Calories" ColumnName="Calories" />
                 <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
@@ -4763,37 +4782,6 @@
                 <ScalarProperty Name="UnitID" ColumnName="UnitID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
-              <MappingFragment StoreEntitySet="Locations">
-                <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="Discounts" ColumnName="Discounts" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
-                <ScalarProperty Name="Closetime" ColumnName="Closetime" />
-                <ScalarProperty Name="Opentime" ColumnName="Opentime" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
-                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
-                <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
-                <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
-                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5004,6 +4992,39 @@
               <ScalarProperty Name="ItemID" ColumnName="ItemID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="db_a8354f_turkishpizzaModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="IsDineInAllowed" ColumnName="IsDineInAllowed" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Discounts" ColumnName="Discounts" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+                <ScalarProperty Name="ReservationClose" ColumnName="ReservationClose" />
+                <ScalarProperty Name="ReservationOpen" ColumnName="ReservationOpen" />
+                <ScalarProperty Name="Closetime" ColumnName="Closetime" />
+                <ScalarProperty Name="Opentime" ColumnName="Opentime" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="MinOrderAmount" ColumnName="MinOrderAmount" />
+                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+                <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+                <ScalarProperty Name="DeliveryServices" ColumnName="DeliveryServices" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

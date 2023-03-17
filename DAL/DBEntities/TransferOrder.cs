@@ -19,8 +19,8 @@ namespace DAL.DBEntities
         public Nullable<int> FromLocationID { get; set; }
         public Nullable<int> ToLocationID { get; set; }
     
+        public virtual Order Order { get; set; }
         public virtual Location Location { get; set; }
         public virtual Location Location1 { get; set; }
-        public virtual Order Order { get; set; }
     }
 }

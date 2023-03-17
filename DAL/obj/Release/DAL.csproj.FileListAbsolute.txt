@@ -214,6 +214,7 @@ D:\Projects\Turkish_API\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
 D:\Projects\Turkish_API\DAL\obj\Release\DAL.csproj.CopyComplete
 D:\Projects\Turkish_API\DAL\obj\Release\DAL.dll
 D:\Projects\Turkish_API\DAL\obj\Release\DAL.pdb
+<<<<<<< HEAD
 D:\Projects\S'Wich_API\DAL\bin\Release\DAL.dll.config
 D:\Projects\S'Wich_API\DAL\bin\Release\DAL.dll
 D:\Projects\S'Wich_API\DAL\bin\Release\DAL.pdb
@@ -241,3 +242,32 @@ D:\Projects\S'Wich_API\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
 D:\Projects\S'Wich_API\DAL\obj\Release\DAL.csproj.CopyComplete
 D:\Projects\S'Wich_API\DAL\obj\Release\DAL.dll
 D:\Projects\S'Wich_API\DAL\obj\Release\DAL.pdb
+=======
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\DAL.dll.config
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\DAL.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\DAL.pdb
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\EntityFramework.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Helpers.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Mvc.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Razor.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\EntityFramework.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Helpers.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Mvc.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.Razor.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\Project\Swich\SwichAPI_GIT\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Project\Swich\SwichAPI_GIT\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Project\Swich\SwichAPI_GIT\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\Project\Swich\SwichAPI_GIT\DAL\obj\Release\DAL.dll
+D:\Project\Swich\SwichAPI_GIT\DAL\obj\Release\DAL.pdb
+>>>>>>> 16d44792e15c4fd13abaeff026b43116310c304c
