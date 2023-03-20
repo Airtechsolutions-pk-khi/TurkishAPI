@@ -169,12 +169,12 @@ namespace BAL.Repositories
             }
         }
 
-        public RspReservationCustomer GetAdminReservations(int brandid)
+        public RspReservationCustomer GetAdminReservations(int brandid, string startdate, string enddate)
         {
             var rsp = new RspReservationCustomer();
             try
             {
-                var dataReservation = GetReservationsAdmin(brandid);
+                var dataReservation = GetReservationsAdmin(brandid, startdate, enddate);
                 rsp.Reservations = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(dataReservation.Tables[0])).ToObject<List<ReservationBLL>>();
                 rsp.status = 1;
                 rsp.description = "Success";
@@ -204,13 +204,15 @@ namespace BAL.Repositories
                 return null;
             }
         }
-        public DataSet GetReservationsAdmin(int BrandID)
+        public DataSet GetReservationsAdmin(int BrandID, string startdate, string enddate)
         {
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] p = new SqlParameter[1];
+                SqlParameter[] p = new SqlParameter[3];
                 p[0] = new SqlParameter("@BrandID", BrandID);
+                p[1] = new SqlParameter("@StartDate", startdate);
+                p[2] = new SqlParameter("@EndDate", enddate);
 
                 ds = (new DBHelper().GetDatasetFromSP)("sp_GetAdminReservation_api", p);
                 return ds;
