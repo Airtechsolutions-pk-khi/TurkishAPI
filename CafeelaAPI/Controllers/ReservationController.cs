@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 
 namespace TurkishAPI.Controllers
 {
@@ -50,13 +51,13 @@ namespace TurkishAPI.Controllers
         }
 
         [HttpPost]
-        [Route("reservation/admin/update/{reservationid}/{statusid}")]
-        public HttpResponseMessage UpdateReservation(int reservationid, int statusid)
+        [Route("reservation/admin/update/{reservationid}/{statusid}/{iscustomercancel}")]
+        public HttpResponseMessage UpdateReservation(int reservationid, int statusid, int iscustomercancel)
         {
             Rsp rsp = new Rsp();
             try
             {
-                rsp = repo.UpdateReservation(reservationid, statusid);
+                rsp = repo.UpdateReservation(reservationid, statusid, iscustomercancel);
             }
             catch (Exception ex)
             {
@@ -83,5 +84,28 @@ namespace TurkishAPI.Controllers
         {
             return repo.GetAdminReservations(brandid, startdate, enddate);
         }
+        //[Route("reservation/update/cancel/{reservationid}/{statusid}")]
+        //public HttpResponseMessage CancelReservation(int reservationid, int statusid)
+        //{
+        //    Rsp rsp = new Rsp();
+        //    try
+        //    {
+        //        rsp = repo.CancelReservation(reservationid, statusid);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        rsp = new RspReservation();
+        //        rsp.status = (int)eStatus.Exception;
+        //        rsp.description = ex.Message;
+        //    }
+        //    string json = Newtonsoft.Json.JsonConvert.SerializeObject(rsp);
+        //    json = Newtonsoft.Json.Linq.JObject.Parse(json).ToString();
+        //    return new HttpResponseMessage
+        //    {
+        //        Content = new StringContent(json, Encoding.UTF8, "text/json")    //  RETURNING json
+        //    };
+
+        //}
+
     }
 }

@@ -35,6 +35,7 @@ namespace BAL.Repositories
             var status2 = new OrderStatusChildBLL();
             var status3 = new OrderStatusChildBLL();
             var bll = new List<OrdersBLL>();
+            var reservation = new List<ReservationBLL>();
             var lstOD = new List<OrderDetailBLL>();
             var lstODM = new List<OrderModifiersBLL>();
             var oc = new OrderCheckoutBLL();
@@ -49,6 +50,7 @@ namespace BAL.Repositories
                 var _dsorderdetailmodifier = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[2])).ToObject<List<OrderModifiersBLL>>();
                 var _dsOrdercheckout = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[3])).ToObject<List<OrderCheckoutBLL>>();
                 var _dsOrderCustomerData = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[4])).ToObject<List<OrderCustomerBLL>>();
+                var _dsReservation = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject<List<ReservationBLL>>();
 
                 //var _dsLocation = JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject<LocationsBLL>();
                 //var _dsBrand = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject< List<BrandsBLL>>().FirstOrDefault();
@@ -539,6 +541,7 @@ namespace BAL.Repositories
             var status2 = new OrderStatusChildBLL();
             var status3 = new OrderStatusChildBLL();
             var bll = new List<OrdersBLL>();
+            var reservebll = new List<ReservationBLL>();
             var lstOD = new List<OrderDetailBLL>();
             var lstODM = new List<OrderModifiersBLL>();
             var oc = new OrderCheckoutBLL();
@@ -553,16 +556,11 @@ namespace BAL.Repositories
                 var _dsorderdetailmodifier = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[2])).ToObject<List<OrderModifiersBLL>>();
                 var _dsOrdercheckout = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[3])).ToObject<List<OrderCheckoutBLL>>();
                 var _dsOrderCustomerData = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[4])).ToObject<List<OrderCustomerBLL>>();
-                //var _dsLocation = JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject<LocationsBLL>();
-                //var _dsBrand = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject< List<BrandsBLL>>().FirstOrDefault();
-
-                //var list = new List<Order>();
-                //list = orderID == 0 ?
-                //    DBContext.Orders.Where(x => x.CustomerID == customerID).ToList()
-                //    : DBContext.Orders.Where(x => x.CustomerID == customerID && x.OrderID == orderID).ToList();
+                var _dsReservationData = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(ds.Tables[5])).ToObject<List<ReservationBLL>>();
 
                 foreach (var i in _dsOrders.OrderByDescending(x => x.OrderID))
                 {
+
                     lstOD = new List<OrderDetailBLL>();
                     foreach (var j in _dsorderdetail.Where(x => x.StatusID == 201 && x.OrderID == i.OrderID))
                     {
@@ -644,8 +642,6 @@ namespace BAL.Repositories
                         ocustomer.TableNo = _OCustomer.TableNo;
                     }
                     else ocustomer = null;
-
-
                     bll.Add(new OrdersBLL
                     {
                         StatusID = i.StatusID,
@@ -666,16 +662,20 @@ namespace BAL.Repositories
                         OrderDetails = lstOD,
                         OrderCheckouts = oc,
                         CustomerOrders = ocustomer,
+                        Reservations = _dsReservationData,
                         BrandID = i.BrandID,
                         OrderDoneDate = i.OrderDoneDate,
                         OrderOFDDate = i.OrderOFDDate,
                         OrderPreparedDate = i.OrderPreparedDate,
                         Remarks = i.Remarks,
-                        OrderStatus = i.OrderStatus
+                        OrderStatus = i.OrderStatus,
                     });
+
+
                 }
 
                 rsp.Orders = bll;
+                rsp.Reservations = _dsReservationData;
                 rsp.status = 1;
                 rsp.description = "Success";
 
@@ -685,6 +685,7 @@ namespace BAL.Repositories
             catch (Exception ex)
             {
                 rsp.Orders = bll;
+                rsp.Reservations = reservebll;
                 rsp.status = 0;
                 rsp.description = "Failed";
                 return rsp;
@@ -885,7 +886,7 @@ namespace BAL.Repositories
             return rsp;
         }
 
-        public Rsp UpdateOrderAdmin(int OrderID, int StatusID)
+        public Rsp UpdateOrderAdmin(int OrderID, int StatusID, int DeliveryBoyID)
         {
             Rsp rsp = new Rsp();
 
@@ -893,7 +894,7 @@ namespace BAL.Repositories
             {
                 try
                 {
-                    if (OrderID == 0 || StatusID == 0)
+                    if (OrderID == 0 || StatusID == 0 || DeliveryBoyID == 0)
                     {
                         rsp.status = (int)eStatus.Exception;
                         rsp.description = "Order cannot be update due to invalid parameter";
@@ -912,7 +913,7 @@ namespace BAL.Repositories
                         {
                             order.OrderOFDDate = currDate;
                         }
-
+                        order.DeliveryBoyID = DeliveryBoyID;
                         order.StatusID = StatusID;
                         order.LastUpdateDT = currDate;
                         DBContext.Orders.AddOrUpdate(order);

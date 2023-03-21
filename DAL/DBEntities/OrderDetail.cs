@@ -32,8 +32,8 @@ namespace DAL.DBEntities
         public Nullable<System.DateTime> LastUpdateDT { get; set; }
     
         public virtual Item Item { get; set; }
-        public virtual Order Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetailModifier> OrderDetailModifiers { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

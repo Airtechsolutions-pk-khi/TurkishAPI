@@ -46,15 +46,17 @@ namespace DAL.DBEntities
         public virtual DbSet<OrderCheckout> OrderCheckouts { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderDetailModifier> OrderDetailModifiers { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PushToken> PushTokens { get; set; }
-        public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<SubUser> SubUsers { get; set; }
         public virtual DbSet<TodaySpecialItem> TodaySpecialItems { get; set; }
         public virtual DbSet<TransferOrder> TransferOrders { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<DeliveryBoy> DeliveryBoys { get; set; }
+        public virtual DbSet<DeliveryBoyBrandJunc> DeliveryBoyBrandJuncs { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     
         public virtual ObjectResult<GetCustomerDeatil_Result> GetCustomerDeatil()
         {
@@ -1890,7 +1892,7 @@ namespace DAL.DBEntities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateOffers_Admin", nameParameter, descriptionParameter, fromDateParameter, toDateParameter, imageParameter, itemIDParameter, statusIDParameter, lastUpdatedByParameter, lastUpdatedDateParameter, brandIDParameter, offerIDParameter);
         }
     
-        public virtual int sp_updateOrderstatus_Admin(Nullable<System.DateTime> date, Nullable<int> statusid, Nullable<int> orderid)
+        public virtual int sp_updateOrderstatus_Admin(Nullable<System.DateTime> date, Nullable<int> statusid, Nullable<int> orderid, Nullable<int> dbId)
         {
             var dateParameter = date.HasValue ?
                 new ObjectParameter("date", date) :
@@ -1904,7 +1906,11 @@ namespace DAL.DBEntities
                 new ObjectParameter("orderid", orderid) :
                 new ObjectParameter("orderid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateOrderstatus_Admin", dateParameter, statusidParameter, orderidParameter);
+            var dbIdParameter = dbId.HasValue ?
+                new ObjectParameter("dbId", dbId) :
+                new ObjectParameter("dbId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateOrderstatus_Admin", dateParameter, statusidParameter, orderidParameter, dbIdParameter);
         }
     
         public virtual int sp_UpdateTodaySpecial_Admin(string itemSettingTitle, Nullable<bool> isItemSetting)

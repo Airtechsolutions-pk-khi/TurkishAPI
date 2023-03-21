@@ -26,5 +26,6 @@ namespace DAL.DBEntities
         public string SittingArea { get; set; }
         public Nullable<int> StatusID { get; set; }
         public Nullable<int> CustomerID { get; set; }
+        public Nullable<int> ReservationStatus { get; set; }
     }
 }

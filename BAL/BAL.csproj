@@ -112,6 +112,7 @@
     <Compile Include="Repositories\loginRepository.cs" />
     <Compile Include="Repositories\menuRepository.cs" />
     <Compile Include="Repositories\offersRepository.cs" />
+    <Compile Include="Repositories\deliveryboyRepository.cs" />
     <Compile Include="Repositories\ReservationRepository.cs" />
     <Compile Include="Repositories\orderRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />

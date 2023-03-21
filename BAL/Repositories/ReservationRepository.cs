@@ -39,40 +39,41 @@ namespace BAL.Repositories
                     try
                     {
                         var currDate = DateTime.UtcNow.AddMinutes(300);
-                        var isAllowReservation = false;
+                        //var isAllowReservation = false;
 
                         var settings = DBContext.Locations.Where(x => x.LocationID == obj.LocationID).FirstOrDefault();
-                        if (settings != null)
-                        {
-                            try
-                            {
-                                if (settings.ReservationOpen != null && settings.ReservationClose != null)
-                                {
-                                    var t1 = int.Parse(TimeSpan.Parse(settings.ReservationOpen).ToString("hhmm"));
-                                    var t2 = 2359;
-                                    var t3 = 0001;
-                                    var t4 = int.Parse(TimeSpan.Parse(settings.ReservationClose).ToString("hhmm"));
-                                    var currTimeint = int.Parse(Convert.ToDateTime(currDate).ToString("HHmm"));
-                                    isAllowReservation = (currTimeint > t1 && currTimeint < t2) && (currTimeint > t3 && currTimeint < t4) ? true : false;
-                                }
-                              
-                            }
-                            catch { }
-                        }
+                        //if (settings != null)
+                        //{
+                        //    try
+                        //    {
+                        //        if (settings.ReservationOpen != null && settings.ReservationClose != null)
+                        //        {
+                        //            var t1 = int.Parse(TimeSpan.Parse(settings.ReservationOpen).ToString("hhmm"));
+                        //            var t2 = 2359;
+                        //            var t3 = 0001;
+                        //            var t4 = int.Parse(TimeSpan.Parse(settings.ReservationClose).ToString("hhmm"));
+                        //            var currTimeint = int.Parse(Convert.ToDateTime(currDate).ToString("HHmm"));
+                        //            isAllowReservation = (currTimeint > t1 && currTimeint < t2) && (currTimeint > t3 && currTimeint < t4) ? true : false;
+                        //        }
 
-                        if (!isAllowReservation)
-                        {
-                            rsp = new RspReservation();
-                            rsp.status = (int)eStatus.Exception;
-                            rsp.description = "Sorry, Reservation Time is from " + Convert.ToDateTime(settings.ReservationOpen).ToString("hh:mm tt") + " to " + Convert.ToDateTime(settings.ReservationClose).ToString("hh:mm tt");                            
-                            return rsp;
-                        }
-                         
+                        //    }
+                        //    catch { }
+                        //}
+
+                        //if (!isAllowReservation)
+                        //{
+                        //    rsp = new RspReservation();
+                        //    rsp.status = (int)eStatus.Exception;
+                        //    rsp.description = "Sorry, Reservation Time is from " + Convert.ToDateTime(settings.ReservationOpen).ToString("hh:mm tt") + " to " + Convert.ToDateTime(settings.ReservationClose).ToString("hh:mm tt");                            
+                        //    return rsp;
+                        //}
+
                         if (obj != null)
-                        {                           
+                        {
                             Reservation reservation = JObject.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(obj)).ToObject<Reservation>();
                             reservation.LastUpdatedDate = DateTime.UtcNow.AddMinutes(300);
-                            reservation.StatusID = 1;
+                            reservation.StatusID = 101;
+                            reservation.ReservationStatus = 1;
                             Reservation data = DBContext.Reservations.Add(reservation);
                             DBContext.SaveChanges();
                             dbContextTransaction.Commit();
@@ -111,7 +112,7 @@ namespace BAL.Repositories
             return rsp;
         }
 
-        public Rsp UpdateReservation(int ReservationID, int StatusID)
+        public Rsp UpdateReservation(int ReservationID, int StatusID, int iscustomercancel)
         {
             Rsp rsp = new Rsp();
 
@@ -119,24 +120,48 @@ namespace BAL.Repositories
             {
                 try
                 {
-                    if (ReservationID == 0 || StatusID == 0)
+                    if (iscustomercancel == 1)
                     {
-                        rsp.status = (int)eStatus.Exception;
-                        rsp.description = "Cannot be update due to invalid parameter";
+                        var obj = DBContext.Reservations.Where(x => x.ReservationID == ReservationID).FirstOrDefault();
+                        if(obj.StatusID == 101)
+                        {
+                            var currDate = DateTime.UtcNow.AddMinutes(300);
+                            obj.StatusID = StatusID;
+                            obj.LastUpdatedDate = currDate;
+                            DBContext.Reservations.AddOrUpdate(obj);
+                            DBContext.SaveChanges();
+                            dbContextTransaction.Commit();
+
+                            rsp.status = (int)eStatus.Success;
+                            rsp.description = "Reservation Cancelled Successfully";
+                        }
+                        else
+                        {
+                            rsp.description = "Sorry! Reservation cannot be cancelled.";
+                        }
+
                     }
                     else
                     {
-                        var currDate = DateTime.UtcNow.AddMinutes(300);
+                        if (ReservationID == 0 || StatusID == 0)
+                        {
+                            rsp.status = (int)eStatus.Exception;
+                            rsp.description = "Cannot be update due to invalid parameter";
+                        }
+                        else
+                        {
+                            var currDate = DateTime.UtcNow.AddMinutes(300);
 
-                        var obj = DBContext.Reservations.Where(x => x.ReservationID == ReservationID).FirstOrDefault();
-                        obj.StatusID = StatusID;
-                        obj.LastUpdatedDate = currDate;
-                        DBContext.Reservations.AddOrUpdate(obj);
-                        DBContext.SaveChanges();
-                        dbContextTransaction.Commit();
+                            var obj = DBContext.Reservations.Where(x => x.ReservationID == ReservationID).FirstOrDefault();
+                            obj.StatusID = StatusID;
+                            obj.LastUpdatedDate = currDate;
+                            DBContext.Reservations.AddOrUpdate(obj);
+                            DBContext.SaveChanges();
+                            dbContextTransaction.Commit();
 
-                        rsp.status = (int)eStatus.Success;
-                        rsp.description = "Reservation Updated";
+                            rsp.status = (int)eStatus.Success;
+                            rsp.description = "Reservation Updated";
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -157,7 +182,7 @@ namespace BAL.Repositories
             {
                 var dataReservation = GetReservationsCustomer(customerID);
                 rsp.Reservations = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(dataReservation.Tables[0])).ToObject<List<ReservationBLL>>();
-                
+
                 rsp.description = "Success";
                 return rsp;
             }
@@ -221,6 +246,42 @@ namespace BAL.Repositories
             {
                 return null;
             }
+        }
+        public Rsp CancelReservation(int ReservationID, int StatusID)
+        {
+            Rsp rsp = new Rsp();
+
+            using (var dbContextTransaction = DBContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    var obj = DBContext.Reservations.Where(x => x.ReservationID == ReservationID).FirstOrDefault();
+                    if (obj.StatusID == 101)
+                    {
+                        obj.StatusID = StatusID;
+                        var currDate = DateTime.UtcNow.AddMinutes(300);
+                        obj.LastUpdatedDate = currDate;
+                        DBContext.Reservations.AddOrUpdate(obj);
+                        DBContext.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        rsp.status = (int)eStatus.Success;
+                        rsp.description = "Reservation Cancelled";
+                    }
+                    else
+                    {
+                        rsp.description = "Sorry! Reservation cannot be cancelled at this time.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    rsp.status = (int)eStatus.Exception;
+                    rsp.description = "Sorry! Reservation cannot be Cancelled.";
+                }
+            }
+
+            return rsp;
         }
     }
 

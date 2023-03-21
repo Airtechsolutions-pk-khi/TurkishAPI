@@ -12,15 +12,13 @@ namespace DAL.DBEntities
     using System;
     using System.Collections.Generic;
     
-    public partial class TransferOrder
+    public partial class DeliveryBoyBrandJunc
     {
-        public int ID { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> FromLocationID { get; set; }
-        public Nullable<int> ToLocationID { get; set; }
+        public int DBAJuncID { get; set; }
+        public Nullable<int> DeliveryBoyID { get; set; }
+        public Nullable<int> BrandID { get; set; }
     
-        public virtual Location Location { get; set; }
-        public virtual Location Location1 { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual DeliveryBoy DeliveryBoy { get; set; }
     }
 }

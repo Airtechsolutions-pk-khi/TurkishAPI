@@ -25,6 +25,7 @@ namespace DAL.DBEntities
             this.Offers = new HashSet<Offer>();
             this.SubUsers = new HashSet<SubUser>();
             this.Locations = new HashSet<Location>();
+            this.DeliveryBoyBrandJuncs = new HashSet<DeliveryBoyBrandJunc>();
         }
     
         public int BrandID { get; set; }
@@ -57,5 +58,7 @@ namespace DAL.DBEntities
         public virtual ICollection<SubUser> SubUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Locations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryBoyBrandJunc> DeliveryBoyBrandJuncs { get; set; }
     }
 }

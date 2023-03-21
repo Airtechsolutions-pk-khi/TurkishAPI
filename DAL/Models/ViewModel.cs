@@ -122,9 +122,15 @@ namespace DAL.Models
     {
         public List<ReservationBLL> Reservations { get; set; }
     }
+
+    public class RspDeliveryBoy : Rsp
+    {
+        public List<DeliveryBoyBLL> DeliveryBoy { get; set; }
+    }
     public class RspOrdersCustomer : Rsp
     {
         public List<OrdersBLL> Orders { get; set; }
+        public List<ReservationBLL> Reservations { get; set; }
     }
 
     public class RspOrdersAdmin : Rsp
@@ -409,6 +415,7 @@ namespace DAL.Models
         public string LastUpdatedBy { get; set; }
         public DateTime? LastUpdatedDate { get; set; }
         public int? LocationID{ get; set; }
+        public int? ReservationStatus { get; set; }
     }
     public class OrdersBLL
     {
@@ -438,6 +445,7 @@ namespace DAL.Models
         public OrderCheckoutBLL OrderCheckouts { get; set; }
         public OrderCustomerBLL CustomerOrders { get; set; }
         public List<OrderDetailBLL> OrderDetails { get; set; }
+        public List<ReservationBLL> Reservations { get; set; }
         public OrderStatusBLL OrderStatus { get; set; }
     }
     public class OrderStatusBLL
@@ -526,5 +534,16 @@ namespace DAL.Models
         public string Title { get; set; }
         public string Message { get; set; }
     }
-
+    public class DeliveryBoyBLL
+    {
+        public int DeliveryBoyID { get; set;}
+        public string DBName { get; set;}
+        public string DBAddress { get; set;}
+        public string DBContactNo { get; set;}
+        public string DBVehicleNo { get; set;}
+        public string DBCNICNo { get; set;}
+        public string DBImage { get; set;}
+        public int Amount { get; set;}
+        public int StatusID { get; set;}
+    }
 }
